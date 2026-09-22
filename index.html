@@ -43,17 +43,13 @@
       transform: scale(1.04);
     }
 
-   .arrow {
-  transition: transform .3s ease, opacity .3s ease;
-}
+    .arrow {
+      transition: transform .3s ease, opacity .3s ease;
+    }
 
-.arrow:hover {
-  transform: rotate(45deg) scale(1.08);
-  opacity: .85;
-}
-
-    .product-card:hover .arrow {
-      transform: rotate(45deg);
+    .arrow:hover {
+      transform: rotate(45deg) scale(1.08);
+      opacity: .85;
     }
 
     .mobile-menu {
@@ -67,9 +63,7 @@
   </style>
 </head>
 
-
 <body>
-
 
 <!-- ================================================= -->
 <!-- NAVBAR -->
@@ -120,14 +114,14 @@
 
       <a
         href="#collection"
-        class="border border-[oklch(27.4%_0.072_132.109)] rounded-full px-5 py-2 text-sm"
+        class="border border-[oklch(27.4%_0.072_132.109)] rounded-full px-5 py-2 text-sm hover:bg-[oklch(27.4%_0.072_132.109)] hover:text-[#f5f0e5] transition"
       >
         Explore
       </a>
 
       <a
         href="#contact"
-        class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-full px-5 py-2 text-sm"
+        class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-full px-5 py-2 text-sm hover:opacity-80 transition"
       >
         Shop now
       </a>
@@ -160,7 +154,6 @@
   </div>
 
 </header>
-
 
 
 <!-- ================================================= -->
@@ -252,7 +245,6 @@
 </section>
 
 
-
 <!-- ================================================= -->
 <!-- ABOUT -->
 <!-- ================================================= -->
@@ -281,6 +273,7 @@
         <br>
         CLOTHES.
         <br>
+
         <span class="opacity-40">
           BETTER DAYS.
         </span>
@@ -301,7 +294,6 @@
   </div>
 
 </section>
-
 
 
 <!-- ================================================= -->
@@ -346,7 +338,6 @@
       </p>
 
     </div>
-
 
 
     <!-- PRODUCTS -->
@@ -408,7 +399,6 @@
       </article>
 
 
-
       <!-- PRODUCT 2 -->
 
       <article class="product-card md:mt-20">
@@ -461,7 +451,6 @@
       </article>
 
 
-
       <!-- PRODUCT 3 -->
 
       <article class="product-card">
@@ -512,7 +501,6 @@
         </div>
 
       </article>
-
 
 
       <!-- PRODUCT 4 -->
@@ -573,7 +561,6 @@
 </section>
 
 
-
 <!-- ================================================= -->
 <!-- FEATURE BANNER -->
 <!-- ================================================= -->
@@ -628,7 +615,6 @@
 </section>
 
 
-
 <!-- ================================================= -->
 <!-- WHY LUNEAID -->
 <!-- ================================================= -->
@@ -679,7 +665,7 @@
       <!-- CARD 1 -->
 
       <div
-        class="bg-[#e8e0d0] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between"
+        class="bg-[#e8e0d0] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between hover:-translate-y-1 transition"
       >
 
         <span class="text-3xl opacity-50">
@@ -702,11 +688,10 @@
       </div>
 
 
-
       <!-- CARD 2 -->
 
       <div
-        class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between"
+        class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between hover:-translate-y-1 transition"
       >
 
         <span class="text-3xl opacity-50">
@@ -729,11 +714,10 @@
       </div>
 
 
-
       <!-- CARD 3 -->
 
       <div
-        class="bg-[#eee7d9] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between"
+        class="bg-[#eee7d9] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between hover:-translate-y-1 transition"
       >
 
         <span class="text-3xl opacity-50">
@@ -760,7 +744,6 @@
   </div>
 
 </section>
-
 
 
 <!-- ================================================= -->
@@ -827,7 +810,6 @@
 </section>
 
 
-
 <!-- ================================================= -->
 <!-- CTA -->
 <!-- ================================================= -->
@@ -877,7 +859,7 @@
 
         <a
           href="mailto:hello@lunea.id"
-          class="inline-flex items-center gap-4 bg-[#f5f0e5] text-[oklch(27.4%_0.072_132.109)] px-6 py-3 rounded-full font-semibold text-sm"
+          class="inline-flex items-center gap-4 bg-[#f5f0e5] text-[oklch(27.4%_0.072_132.109)] px-6 py-3 rounded-full font-semibold text-sm hover:bg-white transition"
         >
           Get in touch
           <span>↗</span>
@@ -890,7 +872,6 @@
   </div>
 
 </section>
-
 
 
 <!-- ================================================= -->
@@ -935,15 +916,15 @@
 
         <div class="flex flex-col gap-3 text-sm opacity-60">
 
-          <a href="#collection">
+          <a href="#collection" class="hover:opacity-100 transition">
             Collection
           </a>
 
-          <a href="#about">
+          <a href="#about" class="hover:opacity-100 transition">
             About
           </a>
 
-          <a href="#why">
+          <a href="#why" class="hover:opacity-100 transition">
             Why Lunea
           </a>
 
@@ -960,7 +941,10 @@
 
         <div class="flex flex-col gap-3 text-sm opacity-60">
 
-          <a href="mailto:hello@lunea.id">
+          <a
+            href="mailto:hello@lunea.id"
+            class="hover:opacity-100 transition"
+          >
             hello@lunea.id
           </a>
 
@@ -996,7 +980,6 @@
   </div>
 
 </footer>
-
 
 
 <!-- ================================================= -->
