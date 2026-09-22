@@ -43,9 +43,14 @@
       transform: scale(1.04);
     }
 
-    .arrow {
-      transition: transform .3s ease;
-    }
+   .arrow {
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+.arrow:hover {
+  transform: rotate(45deg) scale(1.08);
+  opacity: .85;
+}
 
     .product-card:hover .arrow {
       transform: rotate(45deg);
