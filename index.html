@@ -1,40 +1,1033 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>UMKM</title>
+  <title>LUNEAID — Everyday Fashion</title>
 
-    <link rel="stylesheet" href="./dist/output.css">
+  <link rel="stylesheet" href="./dist/output.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f0e5;
+      color: oklch(27.4% 0.072 132.109);
+      font-family: "DM Sans", sans-serif;
+    }
+
+    .hero-image,
+    .product-image {
+      transition: transform .6s ease;
+    }
+
+    .hero-card:hover .hero-image,
+    .product-card:hover .product-image {
+      transform: scale(1.04);
+    }
+
+    .arrow {
+      transition: transform .3s ease;
+    }
+
+    .product-card:hover .arrow {
+      transform: rotate(45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    .mobile-menu.active {
+      display: flex;
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="flex items-center justify-between px-6 py-5 lg:px-16">
-        
-        <!-- Logo -->
-        <a href="#" class="text-2xl font-bold tracking-tight">
-            UMKM<span class="font-normal">KITA</span>
-        </a>
 
-        <!-- Menu -->
-        <div class="hidden md:flex items-center gap-8 text-sm">
-            <a href="#" class="hover:opacity-60 transition">Home</a>
-            <a href="#about" class="hover:opacity-60 transition">Tentang</a>
-            <a href="#produk" class="hover:opacity-60 transition">Produk</a>
-            <a href="#faq" class="hover:opacity-60 transition">FAQ</a>
-            <a href="#contact" class="hover:opacity-60 transition">Kontak</a>
+<!-- ================================================= -->
+<!-- NAVBAR -->
+<!-- ================================================= -->
+
+<header class="px-4 md:px-8 pt-4">
+
+  <nav
+    class="max-w-[1450px] mx-auto h-[68px] bg-[#f5f0e5] rounded-full px-6 md:px-8 flex items-center justify-between border border-[oklch(27.4%_0.072_132.109)]/10"
+  >
+
+    <!-- LOGO -->
+
+    <a
+      href="#"
+      class="font-extrabold text-xl tracking-[-0.07em]"
+    >
+      LUNEAID<span class="opacity-50">.</span>
+    </a>
+
+
+    <!-- MENU -->
+
+    <div class="hidden md:flex items-center gap-9 text-sm font-medium">
+
+      <a href="#collection" class="hover:opacity-50 transition">
+        Collection
+      </a>
+
+      <a href="#about" class="hover:opacity-50 transition">
+        About
+      </a>
+
+      <a href="#why" class="hover:opacity-50 transition">
+        Why Lunea
+      </a>
+
+      <a href="#contact" class="hover:opacity-50 transition">
+        Contact
+      </a>
+
+    </div>
+
+
+    <!-- BUTTON -->
+
+    <div class="hidden md:flex items-center gap-3">
+
+      <a
+        href="#collection"
+        class="border border-[oklch(27.4%_0.072_132.109)] rounded-full px-5 py-2 text-sm"
+      >
+        Explore
+      </a>
+
+      <a
+        href="#contact"
+        class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-full px-5 py-2 text-sm"
+      >
+        Shop now
+      </a>
+
+    </div>
+
+
+    <!-- MOBILE -->
+
+    <button
+      id="menuButton"
+      class="md:hidden text-xl"
+    >
+      ☰
+    </button>
+
+  </nav>
+
+
+  <div
+    id="mobileMenu"
+    class="mobile-menu max-w-[1450px] mx-auto mt-2 bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-3xl p-6 flex-col gap-5"
+  >
+
+    <a href="#collection">Collection</a>
+    <a href="#about">About</a>
+    <a href="#why">Why Lunea</a>
+    <a href="#contact">Contact</a>
+
+  </div>
+
+</header>
+
+
+
+<!-- ================================================= -->
+<!-- HERO -->
+<!-- ================================================= -->
+
+<section class="px-4 md:px-8 pt-4">
+
+  <div
+    class="hero-card max-w-[1450px] mx-auto relative h-[620px] md:h-[700px] overflow-hidden rounded-[28px] bg-[oklch(27.4%_0.072_132.109)]"
+  >
+
+    <img
+      src="https://i.pinimg.com/1200x/40/b7/49/40b749a925def670d8ae8fc7ccc33b69.jpg"
+      alt="LUNEAID Fashion"
+      class="hero-image absolute right-0 top-0 w-full md:w-[58%] h-full object-cover"
+    >
+
+
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-[oklch(27.4%_0.072_132.109)] via-[oklch(27.4%_0.072_132.109)]/90 to-transparent"
+    ></div>
+
+
+    <div
+      class="relative z-10 h-full p-7 md:p-12 flex flex-col justify-between text-[#f5f0e5]"
+    >
+
+      <div class="flex justify-between items-start">
+
+        <span
+          class="bg-[#f5f0e5] text-[oklch(27.4%_0.072_132.109)] rounded-full px-4 py-2 text-xs font-semibold"
+        >
+          NEW COLLECTION
+        </span>
+
+        <span class="hidden md:block text-xs font-medium">
+          EST. 2026 · INDONESIA
+        </span>
+
+      </div>
+
+
+      <div class="max-w-[850px]">
+
+        <p
+          class="text-sm md:text-base mb-5 opacity-60"
+        >
+          Everyday clothing,
+          without the everyday feeling.
+        </p>
+
+
+        <h1
+          class="font-extrabold text-[17vw] md:text-[11vw] leading-[.76] tracking-[-0.1em]"
+        >
+          EVERYDAY
+          <br>
+
+          <span>
+            POLO.
+          </span>
+        </h1>
+
+
+        <div
+          class="mt-8 flex flex-col md:flex-row md:items-center gap-5"
+        >
+
+          <a
+            href="#collection"
+            class="w-fit bg-[#f5f0e5] text-[oklch(27.4%_0.072_132.109)] rounded-full px-6 py-3 text-sm font-semibold hover:bg-white transition"
+          >
+            Discover collection →
+          </a>
+
+          <span class="text-sm opacity-50">
+            Simple · Comfortable · LUNEAID
+          </span>
+
         </div>
 
-        <!-- Button -->
-        <a href="login.html"
-            class="hidden md:block bg-black text-white px-5 py-3 text-sm hover:bg-gray-800 transition">
-            Login
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ABOUT -->
+<!-- ================================================= -->
+
+<section
+  id="about"
+  class="px-4 md:px-8 py-24"
+>
+
+  <div
+    class="max-w-[1450px] mx-auto grid md:grid-cols-2 gap-10 items-end"
+  >
+
+    <div>
+
+      <p
+        class="text-xs uppercase tracking-[.2em] opacity-40 mb-5"
+      >
+        About LUNEAID
+      </p>
+
+      <h2
+        class="font-extrabold text-5xl md:text-7xl leading-[.88] tracking-[-.08em]"
+      >
+        SIMPLE
+        <br>
+        CLOTHES.
+        <br>
+        <span class="opacity-40">
+          BETTER DAYS.
+        </span>
+      </h2>
+
+    </div>
+
+
+    <p
+      class="max-w-md text-sm md:text-base leading-7 opacity-55"
+    >
+      LUNEAID is a local fashion brand focused on
+      everyday polo shirts. We combine simple
+      silhouettes with comfortable materials so
+      every piece feels easy to wear.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- COLLECTION -->
+<!-- ================================================= -->
+
+<section
+  id="collection"
+  class="px-4 md:px-8"
+>
+
+  <div
+    class="max-w-[1450px] mx-auto"
+  >
+
+    <!-- COLLECTION HEADER -->
+
+    <div
+      class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-[28px] p-7 md:p-10 flex flex-col md:flex-row md:items-end justify-between gap-8"
+    >
+
+      <div>
+
+        <p class="text-xs opacity-40 uppercase tracking-[.2em] mb-4">
+          LUNEAID Collection
+        </p>
+
+        <h2
+          class="font-extrabold text-5xl md:text-7xl tracking-[-.08em]"
+        >
+          FIND YOUR
+          <br>
+          POLO.
+        </h2>
+
+      </div>
+
+
+      <p class="max-w-sm text-sm opacity-50 leading-6">
+        Four essential styles designed to fit
+        different moods, days, and personalities.
+      </p>
+
+    </div>
+
+
+
+    <!-- PRODUCTS -->
+
+    <div
+      class="grid md:grid-cols-2 gap-4 mt-4"
+    >
+
+
+      <!-- PRODUCT 1 -->
+
+      <article class="product-card">
+
+        <div
+          class="relative h-[520px] md:h-[600px] rounded-[26px] overflow-hidden bg-[#e8e0d0]"
+        >
+
+          <img
+            src="https://i.pinimg.com/736x/dd/23/e3/dd23e374462d0391424d260dfbd03e41.jpg"
+            alt="Signature Polo"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <div
+            class="absolute top-5 left-5 bg-[#f5f0e5] rounded-full px-4 py-2 text-xs font-semibold"
+          >
+            BEST SELLER
+          </div>
+
+          <button
+            class="arrow absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] flex items-center justify-center"
+          >
+            ↗
+          </button>
+
+        </div>
+
+
+        <div class="flex justify-between items-start py-5 px-1">
+
+          <div>
+
+            <h3 class="font-bold">
+              Signature Polo
+            </h3>
+
+            <p class="text-sm opacity-40 mt-1">
+              Dark Green
+            </p>
+
+          </div>
+
+          <p class="font-semibold">
+            Rp189K
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 2 -->
+
+      <article class="product-card md:mt-20">
+
+        <div
+          class="relative h-[520px] md:h-[600px] rounded-[26px] overflow-hidden bg-[#e8e0d0]"
+        >
+
+          <img
+            src="https://i.pinimg.com/1200x/61/96/8d/61968d629d10d4780cd6890d96571889.jpg"
+            alt="Essential Polo"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <div
+            class="absolute top-5 left-5 bg-[#f5f0e5] rounded-full px-4 py-2 text-xs font-semibold"
+          >
+            ESSENTIAL
+          </div>
+
+          <button
+            class="arrow absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] flex items-center justify-center"
+          >
+            ↗
+          </button>
+
+        </div>
+
+
+        <div class="flex justify-between items-start py-5 px-1">
+
+          <div>
+
+            <h3 class="font-bold">
+              Essential Polo
+            </h3>
+
+            <p class="text-sm opacity-40 mt-1">
+              Cream
+            </p>
+
+          </div>
+
+          <p class="font-semibold">
+            Rp179K
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 3 -->
+
+      <article class="product-card">
+
+        <div
+          class="relative h-[520px] md:h-[600px] rounded-[26px] overflow-hidden bg-[#e8e0d0]"
+        >
+
+          <img
+            src="https://i.pinimg.com/736x/8b/e9/d5/8be9d5307f0dbca582da09370fd111b4.jpg"
+            alt="Daily Polo"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <div
+            class="absolute top-5 left-5 bg-[#f5f0e5] rounded-full px-4 py-2 text-xs font-semibold"
+          >
+            DAILY
+          </div>
+
+          <button
+            class="arrow absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] flex items-center justify-center"
+          >
+            ↗
+          </button>
+
+        </div>
+
+
+        <div class="flex justify-between items-start py-5 px-1">
+
+          <div>
+
+            <h3 class="font-bold">
+              Daily Polo
+            </h3>
+
+            <p class="text-sm opacity-40 mt-1">
+              Olive
+            </p>
+
+          </div>
+
+          <p class="font-semibold">
+            Rp199K
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- PRODUCT 4 -->
+
+      <article class="product-card md:mt-20">
+
+        <div
+          class="relative h-[520px] md:h-[600px] rounded-[26px] overflow-hidden bg-[#e8e0d0]"
+        >
+
+          <img
+            src="https://i.pinimg.com/736x/38/df/dc/38dfdca58d3128b17875854a6ce09ac6.jpg"
+            alt="Edition Polo"
+            class="product-image w-full h-full object-cover"
+          >
+
+          <div
+            class="absolute top-5 left-5 bg-[#f5f0e5] rounded-full px-4 py-2 text-xs font-semibold"
+          >
+            LIMITED
+          </div>
+
+          <button
+            class="arrow absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] flex items-center justify-center"
+          >
+            ↗
+          </button>
+
+        </div>
+
+
+        <div class="flex justify-between items-start py-5 px-1">
+
+          <div>
+
+            <h3 class="font-bold">
+              Edition Polo
+            </h3>
+
+            <p class="text-sm opacity-40 mt-1">
+              Forest
+            </p>
+
+          </div>
+
+          <p class="font-semibold">
+            Rp219K
+          </p>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- FEATURE BANNER -->
+<!-- ================================================= -->
+
+<section class="px-4 md:px-8 py-24">
+
+  <div
+    class="max-w-[1450px] mx-auto relative overflow-hidden rounded-[28px] h-[480px] md:h-[550px] bg-[oklch(27.4%_0.072_132.109)]"
+  >
+
+    <img
+      src="https://cdn.corenexis.com/f/VJDNrIhQOjK.jpg"
+      alt="LUNEAID Fashion"
+      class="w-full h-full object-cover opacity-75"
+    >
+
+
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-[oklch(27.4%_0.072_132.109)]/90 to-transparent"
+    ></div>
+
+
+    <div
+      class="absolute bottom-8 md:bottom-12 left-7 md:left-12 right-7 md:right-12 text-[#f5f0e5]"
+    >
+
+      <p class="text-xs uppercase tracking-[.2em] opacity-60 mb-4">
+        Made for your everyday
+      </p>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+
+        <h2
+          class="font-extrabold text-5xl md:text-7xl leading-[.85] tracking-[-.08em]"
+        >
+          WEAR IT.
+          <br>
+          MAKE IT YOURS.
+        </h2>
+
+        <p class="max-w-xs text-sm opacity-60 leading-6">
+          One polo. Endless ways to make it
+          your own.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- WHY LUNEAID -->
+<!-- ================================================= -->
+
+<section
+  id="why"
+  class="px-4 md:px-8 py-10"
+>
+
+  <div
+    class="max-w-[1450px] mx-auto"
+  >
+
+    <div
+      class="text-center mb-14"
+    >
+
+      <p
+        class="text-xs uppercase tracking-[.2em] opacity-40 mb-4"
+      >
+        Why LUNEAID?
+      </p>
+
+      <h2
+        class="font-extrabold text-5xl md:text-7xl tracking-[-.08em]"
+      >
+        MADE TO BE
+        <span class="opacity-40">
+          WORN.
+        </span>
+      </h2>
+
+      <p
+        class="max-w-lg mx-auto mt-5 text-sm opacity-45 leading-6"
+      >
+        We focus on the things that matter:
+        comfort, quality, and simple design.
+      </p>
+
+    </div>
+
+
+    <div
+      class="grid md:grid-cols-3 gap-4"
+    >
+
+
+      <!-- CARD 1 -->
+
+      <div
+        class="bg-[#e8e0d0] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between"
+      >
+
+        <span class="text-3xl opacity-50">
+          01
+        </span>
+
+        <div>
+
+          <h3 class="font-bold text-2xl mb-3">
+            Comfortable
+          </h3>
+
+          <p class="text-sm opacity-50 leading-6">
+            Soft and comfortable materials
+            made for everyday activities.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CARD 2 -->
+
+      <div
+        class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between"
+      >
+
+        <span class="text-3xl opacity-50">
+          02
+        </span>
+
+        <div>
+
+          <h3 class="font-bold text-2xl mb-3">
+            Easy to Style
+          </h3>
+
+          <p class="text-sm opacity-50 leading-6">
+            Simple colors and silhouettes
+            that work with your wardrobe.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CARD 3 -->
+
+      <div
+        class="bg-[#eee7d9] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between"
+      >
+
+        <span class="text-3xl opacity-50">
+          03
+        </span>
+
+        <div>
+
+          <h3 class="font-bold text-2xl mb-3">
+            Local Brand
+          </h3>
+
+          <p class="text-sm opacity-50 leading-6">
+            Proudly created as a local fashion
+            brand for Indonesian customers.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- TESTIMONIAL -->
+<!-- ================================================= -->
+
+<section class="px-4 md:px-8 py-24">
+
+  <div
+    class="max-w-[1450px] mx-auto bg-[#e8e0d0] rounded-[28px] p-8 md:p-14"
+  >
+
+    <div
+      class="grid md:grid-cols-2 gap-12 items-center"
+    >
+
+      <div>
+
+        <p
+          class="text-xs uppercase tracking-[.2em] opacity-40 mb-5"
+        >
+          What people say
+        </p>
+
+        <h2
+          class="font-extrabold text-5xl md:text-6xl tracking-[-.07em] leading-[.9]"
+        >
+          YOUR NEW
+          <br>
+          FAVORITE
+          <br>
+          POLO.
+        </h2>
+
+      </div>
+
+
+      <div>
+
+        <div class="text-3xl mb-5">
+          ★★★★★
+        </div>
+
+        <p
+          class="text-lg md:text-xl leading-8 max-w-lg"
+        >
+          “The fit is simple but still looks
+          really clean. It's the kind of polo
+          I can wear almost anywhere.”
+        </p>
+
+        <p
+          class="mt-7 text-sm font-semibold"
+        >
+          — Alya, LUNEAID customer
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- CTA -->
+<!-- ================================================= -->
+
+<section
+  id="contact"
+  class="px-4 md:px-8 pb-24"
+>
+
+  <div
+    class="max-w-[1450px] mx-auto bg-[oklch(27.4%_0.072_132.109)] rounded-[28px] text-[#f5f0e5] p-8 md:p-14"
+  >
+
+    <div
+      class="flex flex-col md:flex-row md:items-end justify-between gap-12"
+    >
+
+      <div>
+
+        <p
+          class="text-xs uppercase tracking-[.2em] opacity-40 mb-5"
+        >
+          LUNEAID
+        </p>
+
+        <h2
+          class="font-extrabold text-6xl md:text-8xl leading-[.8] tracking-[-.09em]"
+        >
+          FIND
+          <br>
+          YOUR
+          <br>
+          POLO.
+        </h2>
+
+      </div>
+
+
+      <div>
+
+        <p
+          class="max-w-sm text-sm opacity-50 leading-6 mb-6"
+        >
+          Ready to find your everyday
+          favorite?
+        </p>
+
+        <a
+          href="mailto:hello@lunea.id"
+          class="inline-flex items-center gap-4 bg-[#f5f0e5] text-[oklch(27.4%_0.072_132.109)] px-6 py-3 rounded-full font-semibold text-sm"
+        >
+          Get in touch
+          <span>↗</span>
         </a>
 
-    </nav>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<footer
+  class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] px-5 md:px-8 py-10"
+>
+
+  <div
+    class="max-w-[1450px] mx-auto"
+  >
+
+    <div
+      class="grid md:grid-cols-4 gap-10 pb-10"
+    >
+
+      <div class="md:col-span-2">
+
+        <h2
+          class="font-extrabold text-3xl tracking-[-.08em]"
+        >
+          LUNEAID<span class="opacity-50">.</span>
+        </h2>
+
+        <p
+          class="text-sm opacity-40 max-w-xs mt-4 leading-6"
+        >
+          Everyday polos made simple,
+          comfortable, and yours.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <p class="text-xs uppercase tracking-[.2em] opacity-30 mb-5">
+          Explore
+        </p>
+
+        <div class="flex flex-col gap-3 text-sm opacity-60">
+
+          <a href="#collection">
+            Collection
+          </a>
+
+          <a href="#about">
+            About
+          </a>
+
+          <a href="#why">
+            Why Lunea
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <p class="text-xs uppercase tracking-[.2em] opacity-30 mb-5">
+          Contact
+        </p>
+
+        <div class="flex flex-col gap-3 text-sm opacity-60">
+
+          <a href="mailto:hello@lunea.id">
+            hello@lunea.id
+          </a>
+
+          <span>
+            Indonesia
+          </span>
+
+          <span>
+            @lunea.id
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="border-t border-[#f5f0e5]/10 pt-6 flex flex-col md:flex-row justify-between gap-3 text-xs opacity-30"
+    >
+
+      <p>
+        © 2026 LUNEAID
+      </p>
+
+      <p>
+        Everyday fashion, made simple.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+  const menuButton =
+    document.getElementById("menuButton");
+
+  const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+  menuButton.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("active");
+
+  });
+
+
+  mobileMenu
+    .querySelectorAll("a")
+    .forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("active");
+
+      });
+
+    });
+
+</script>
+
 
 </body>
 </html>
