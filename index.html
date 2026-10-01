@@ -1,1020 +1,4612 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>LUNEAID — Everyday Fashion</title>
+    <title>Kopi Kenangan — A Taste Worth Remembering</title>
 
-  <link rel="stylesheet" href="./dist/output.css">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
-  <style>
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    * {
-      box-sizing: border-box;
-    }
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            950: '#0b0806',
+                            900: '#120c09',
+                            800: '#1d120d',
+                            700: '#2b1a13',
+                            600: '#43291e',
+                            500: '#694434'
+                        },
 
-    html {
-      scroll-behavior: smooth;
-    }
+                        cream: {
+                            50: '#fffdf8',
+                            100: '#f8f1e7',
+                            200: '#eadfce',
+                            300: '#d6c5ae'
+                        },
 
-    body {
-      margin: 0;
-      background: #f5f0e5;
-      color: oklch(27.4% 0.072 132.109);
-      font-family: "DM Sans", sans-serif;
-    }
+                        gold: {
+                            300: '#e8d09a',
+                            400: '#d6b56d',
+                            500: '#b99452'
+                        }
+                    },
 
-    .hero-image,
-    .product-image {
-      transition: transform .6s ease;
-    }
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['DM Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 
-    .hero-card:hover .hero-image,
-    .product-card:hover .product-image {
-      transform: scale(1.04);
-    }
+    <style>
 
-    .arrow {
-      transition: transform .3s ease, opacity .3s ease;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .arrow:hover {
-      transform: rotate(45deg) scale(1.08);
-      opacity: .85;
-    }
+        body {
+            background: #0b0806;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+        }
 
-    .mobile-menu {
-      display: none;
-    }
+        ::selection {
+            background: #d6b56d;
+            color: #120c09;
+        }
 
-    .mobile-menu.active {
-      display: flex;
-    }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
 
-  </style>
+        /* Background glow */
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(185, 148, 82, 0.08);
+            filter: blur(120px);
+            border-radius: 999px;
+            pointer-events: none;
+        }
+
+        /* Gold line */
+
+        .gold-line {
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(214,181,109,.7),
+                transparent
+            );
+        }
+
+        /* Glass */
+
+        .glass {
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.09);
+            backdrop-filter: blur(16px);
+        }
+
+        /* Image */
+
+        .image-hover img {
+            transition: transform .7s ease;
+        }
+
+        .image-hover:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Buttons */
+
+        .gold-button {
+            background: linear-gradient(
+                135deg,
+                #d6b56d,
+                #a77d3e
+            );
+
+            color: #160f0b;
+
+            box-shadow:
+                0 10px 30px rgba(185,148,82,.15);
+
+            transition: all .3s ease;
+        }
+
+        .gold-button:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 15px 35px rgba(185,148,82,.28);
+        }
+
+        /* Card */
+
+        .premium-card {
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,.055),
+                rgba(255,255,255,.018)
+            );
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-7px);
+
+            border-color: rgba(214,181,109,.35);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.35);
+        }
+
+        /* Fade animation */
+
+        .fade-up {
+            animation: fadeUp .8s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating coffee bean */
+
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<!-- ================================================= -->
-<!-- NAVBAR -->
-<!-- ================================================= -->
 
-<header class="px-4 md:px-8 pt-4">
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
 
-  <nav
-    class="max-w-[1450px] mx-auto h-[68px] bg-[#f5f0e5] rounded-full px-6 md:px-8 flex items-center justify-between border border-[oklch(27.4%_0.072_132.109)]/10"
-  >
+<header class="fixed top-0 left-0 right-0 z-50">
 
-    <!-- LOGO -->
+    <div class="max-w-7xl mx-auto px-6">
 
-    <a
-      href="#"
-      class="font-extrabold text-xl tracking-[-0.07em]"
-    >
-      LUNEAID<span class="opacity-50">.</span>
-    </a>
+        <nav class="mt-4 glass rounded-full px-6 py-4 flex items-center justify-between">
+
+            <!-- Logo -->
+
+            <a href="#" class="flex items-center gap-3">
+
+                <div class="w-10 h-10 rounded-full
+                            border border-gold-400/50
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-mug-hot text-gold-400"></i>
+
+                </div>
+
+                <div>
+
+                    <h1 class="serif text-lg text-white leading-none">
+                        Kopi Sandikala
+                    </h1>
+
+                    <span class="text-[9px] tracking-[.3em] uppercase text-gold-400">
+                        Coffee & Memories
+                    </span>
+
+                </div>
+
+            </a>
 
 
-    <!-- MENU -->
+            <!-- Navigation -->
 
-    <div class="hidden md:flex items-center gap-9 text-sm font-medium">
+            <div class="hidden lg:flex items-center gap-9 text-xs text-cream-300">
 
-      <a href="#collection" class="hover:opacity-50 transition">
-        Collection
-      </a>
+                <a href="#home"
+                   class="hover:text-gold-300 transition">
+                    Beranda
+                </a>
 
-      <a href="#about" class="hover:opacity-50 transition">
-        About
-      </a>
+                <a href="#about"
+                   class="hover:text-gold-300 transition">
+                    Tentang
+                </a>
 
-      <a href="#why" class="hover:opacity-50 transition">
-        Why Lunea
-      </a>
+                <a href="#menu"
+                   class="hover:text-gold-300 transition">
+                    Menu
+                </a>
 
-      <a href="#contact" class="hover:opacity-50 transition">
-        Contact
-      </a>
+                <a href="#testimonial"
+                   class="hover:text-gold-300 transition">
+                    Testimoni
+                </a>
+
+            </div>
+
+
+            <!-- Button -->
+
+            <a href="#menu"
+               class="gold-button px-5 py-2.5 rounded-full
+                      text-xs font-semibold">
+
+                Pesan Sekarang
+
+                <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+
+            </a>
+
+        </nav>
 
     </div>
-
-
-    <!-- BUTTON -->
-
-    <div class="hidden md:flex items-center gap-3">
-
-      <a
-        href="#collection"
-        class="border border-[oklch(27.4%_0.072_132.109)] rounded-full px-5 py-2 text-sm hover:bg-[oklch(27.4%_0.072_132.109)] hover:text-[#f5f0e5] transition"
-      >
-        Explore
-      </a>
-
-      <a
-        href="#contact"
-        class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-full px-5 py-2 text-sm hover:opacity-80 transition"
-      >
-        Shop now
-      </a>
-
-    </div>
-
-
-    <!-- MOBILE -->
-
-    <button
-      id="menuButton"
-      class="md:hidden text-xl"
-    >
-      ☰
-    </button>
-
-  </nav>
-
-
-  <div
-    id="mobileMenu"
-    class="mobile-menu max-w-[1450px] mx-auto mt-2 bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-3xl p-6 flex-col gap-5"
-  >
-
-    <a href="#collection">Collection</a>
-    <a href="#about">About</a>
-    <a href="#why">Why Lunea</a>
-    <a href="#contact">Contact</a>
-
-  </div>
 
 </header>
 
 
-<!-- ================================================= -->
-<!-- HERO -->
-<!-- ================================================= -->
 
-<section class="px-4 md:px-8 pt-4">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-  <div
-    class="hero-card max-w-[1450px] mx-auto relative h-[620px] md:h-[700px] overflow-hidden rounded-[28px] bg-[oklch(27.4%_0.072_132.109)]"
-  >
+<main id="home">
 
-    <img
-      src="https://i.pinimg.com/1200x/40/b7/49/40b749a925def670d8ae8fc7ccc33b69.jpg"
-      alt="LUNEAID Fashion"
-      class="hero-image absolute right-0 top-0 w-full md:w-[58%] h-full object-cover"
-    >
+<section class="relative min-h-screen flex items-center overflow-hidden">
 
+    <!-- Glow -->
 
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-[oklch(27.4%_0.072_132.109)] via-[oklch(27.4%_0.072_132.109)]/90 to-transparent"
-    ></div>
+    <div class="glow top-20 left-[-150px]"></div>
+
+    <div class="glow bottom-[-150px] right-[-100px]"></div>
 
 
-    <div
-      class="relative z-10 h-full p-7 md:p-12 flex flex-col justify-between text-[#f5f0e5]"
-    >
+    <!-- Background -->
 
-      <div class="flex justify-between items-start">
+    <div class="absolute inset-0">
 
-        <span
-          class="bg-[#f5f0e5] text-[oklch(27.4%_0.072_132.109)] rounded-full px-4 py-2 text-xs font-semibold"
-        >
-          NEW COLLECTION
-        </span>
-
-        <span class="hidden md:block text-xs font-medium">
-          EST. 2026 · INDONESIA
-        </span>
-
-      </div>
-
-
-      <div class="max-w-[850px]">
-
-        <p
-          class="text-sm md:text-base mb-5 opacity-60"
-        >
-          Everyday clothing,
-          without the everyday feeling.
-        </p>
-
-
-        <h1
-          class="font-extrabold text-[17vw] md:text-[11vw] leading-[.76] tracking-[-0.1em]"
-        >
-          EVERYDAY
-          <br>
-
-          <span>
-            POLO.
-          </span>
-        </h1>
-
-
-        <div
-          class="mt-8 flex flex-col md:flex-row md:items-center gap-5"
+        <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=85&w=2000&auto=format&fit=crop"
+            class="w-full h-full object-cover opacity-45"
+            alt="Premium Coffee"
         >
 
-          <a
-            href="#collection"
-            class="w-fit bg-[#f5f0e5] text-[oklch(27.4%_0.072_132.109)] rounded-full px-6 py-3 text-sm font-semibold hover:bg-white transition"
-          >
-            Discover collection →
-          </a>
-
-          <span class="text-sm opacity-50">
-            Simple · Comfortable · LUNEAID
-          </span>
-
+        <div class="absolute inset-0
+                    bg-gradient-to-r
+                    from-coffee-950
+                    via-coffee-950/95
+                    to-coffee-950/40">
         </div>
 
-      </div>
+        <div class="absolute inset-0
+                    bg-gradient-to-t
+                    from-coffee-950
+                    via-transparent
+                    to-coffee-950/40">
+        </div>
 
     </div>
 
-  </div>
+
+    <!-- Hero Content -->
+
+    <div class="relative z-10 max-w-7xl mx-auto
+                px-6 pt-32 pb-20 w-full">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+
+            <!-- Left -->
+
+            <div class="fade-up">
+
+                <div class="flex items-center gap-3 mb-7">
+
+                    <span class="w-10 h-px bg-gold-400"></span>
+
+                    <span class="text-gold-400 uppercase
+                                 tracking-[.35em] text-[10px] font-semibold">
+                        Premium Indonesian Coffee
+                    </span>
+
+                </div>
+
+
+                <h2 class="serif text-5xl sm:text-6xl lg:text-7xl
+                           leading-[1.05] font-medium">
+
+                    Setiap Tegukan,
+
+                    <span class="block italic text-gold-300 mt-2">
+                        Punya Cerita.
+                    </span>
+
+                </h2>
+
+
+                <p class="text-cream-300/70
+                          text-sm sm:text-base
+                          leading-8 max-w-lg mt-7">
+
+                    Dari biji kopi pilihan Indonesia hingga menjadi
+                    secangkir kopi yang menemani setiap momen.
+                    Sederhana, elegan, dan selalu bikin kangen.
+
+                </p>
+
+
+                <div class="flex flex-wrap items-center gap-4 mt-9">
+
+                    <a href="#menu"
+                       class="gold-button px-7 py-3.5
+                              rounded-full text-xs font-semibold">
+
+                        Jelajahi Menu
+
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                    </a>
+
+
+                    <a href="#about"
+                       class="px-7 py-3.5 rounded-full
+                              border border-white/15
+                              text-xs text-white
+                              hover:bg-white/5 transition">
+
+                        Cerita Kami
+
+                    </a>
+
+                </div>
+
+
+                <!-- Stats -->
+
+                <div class="flex items-center gap-10 mt-12">
+
+                    <div>
+
+                        <p class="serif text-2xl text-white">
+                            10+
+                        </p>
+
+                        <p class="text-[10px] text-cream-300/50 mt-1">
+                            Tahun Berkarya
+                        </p>
+
+                    </div>
+
+
+                    <div class="w-px h-8 bg-white/10"></div>
+
+
+                    <div>
+
+                        <p class="serif text-2xl text-white">
+                            100+
+                        </p>
+
+                        <p class="text-[10px] text-cream-300/50 mt-1">
+                            Pilihan Menu
+                        </p>
+
+                    </div>
+
+
+                    <div class="w-px h-8 bg-white/10"></div>
+
+
+                    <div>
+
+                        <p class="serif text-2xl text-white">
+                            4.9
+                        </p>
+
+                        <p class="text-[10px] text-cream-300/50 mt-1">
+                            Rating Pelanggan
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Right -->
+
+            <div class="hidden lg:flex justify-center relative">
+
+                <div class="relative w-[440px] h-[540px]">
+
+                    <!-- Main image -->
+
+                    <div class="absolute inset-8
+                                rounded-[12rem]
+                                overflow-hidden
+                                border border-white/10
+                                image-hover">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=85&w=1000&auto=format&fit=crop"
+                            class="w-full h-full object-cover"
+                            alt="Coffee"
+                        >
+
+                        <div class="absolute inset-0
+                                    bg-gradient-to-t
+                                    from-coffee-950/60
+                                    to-transparent">
+                        </div>
+
+                    </div>
+
+
+                    <!-- Floating badge -->
+
+                    <div class="absolute top-16 right-0
+                                glass rounded-2xl
+                                px-5 py-4 float">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="w-9 h-9 rounded-full
+                                        bg-gold-400/10
+                                        flex items-center justify-center">
+
+                                <i class="fa-solid fa-star
+                                          text-gold-400 text-xs">
+                                </i>
+
+                            </div>
+
+                            <div>
+
+                                <p class="text-white text-xs font-semibold">
+                                    Signature Blend
+                                </p>
+
+                                <p class="text-cream-300/50 text-[9px] mt-1">
+                                    Crafted with passion
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Bottom badge -->
+
+                    <div class="absolute bottom-14 left-0
+                                glass rounded-2xl px-5 py-4">
+
+                        <p class="serif text-xl text-gold-300">
+                            100%
+                        </p>
+
+                        <p class="text-[9px] uppercase
+                                  tracking-widest
+                                  text-cream-300/50">
+                            Indonesian Coffee Beans
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Scroll -->
+
+    <div class="absolute bottom-8 left-1/2
+                -translate-x-1/2
+                text-center">
+
+        <p class="text-[9px] uppercase
+                  tracking-[.3em]
+                  text-white/30">
+            Scroll to explore
+        </p>
+
+        <i class="fa-solid fa-chevron-down
+                  text-white/30 text-xs mt-3">
+        </i>
+
+    </div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- ABOUT -->
-<!-- ================================================= -->
 
-<section
-  id="about"
-  class="px-4 md:px-8 py-24"
->
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-  <div
-    class="max-w-[1450px] mx-auto grid md:grid-cols-2 gap-10 items-end"
-  >
+<section id="about" class="relative py-28">
 
-    <div>
+    <div class="max-w-7xl mx-auto px-6">
 
-      <p
-        class="text-xs uppercase tracking-[.2em] opacity-40 mb-5"
-      >
-        About LUNEAID
-      </p>
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-      <h2
-        class="font-extrabold text-5xl md:text-7xl leading-[.88] tracking-[-.08em]"
-      >
-        SIMPLE
-        <br>
-        CLOTHES.
-        <br>
 
-        <span class="opacity-40">
-          BETTER DAYS.
-        </span>
-      </h2>
+            <!-- Image -->
+
+            <div class="relative image-hover">
+
+                <div class="absolute
+                            -inset-4
+                            border border-gold-400/10
+                            rounded-3xl">
+                </div>
+
+                <div class="relative rounded-3xl
+                            overflow-hidden
+                            h-[425px]">
+
+                    <img
+                        src="https://i.pinimg.com/736x/9c/8d/3d/9c8d3d413bbf4e55a51eae7d8aa56772.jpg"
+                        class="w-full h-full object-cover"
+                        alt="Coffee beans"
+                    >
+
+                    <div class="absolute inset-0
+                                bg-gradient-to-t
+                                from-coffee-950/70
+                                to-transparent">
+                    </div>
+
+
+                    <div class="absolute bottom-8 left-8">
+
+                        <p class="serif text-3xl italic">
+                            "Made with
+                            <span class="text-gold-300">
+                                passion.
+                            </span>"
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Content -->
+
+            <div>
+
+                <div class="flex items-center gap-3 mb-6">
+
+                    <span class="w-8 h-px bg-gold-400"></span>
+
+                    <span class="text-gold-400 text-[10px]
+                                 uppercase tracking-[.3em]">
+                        Our Story
+                    </span>
+
+                </div>
+
+
+                <h2 class="serif text-4xl md:text-5xl leading-tight">
+
+                    Bukan Sekadar
+                    <span class="italic text-gold-300">
+                        Secangkir Kopi.
+                    </span>
+
+                </h2>
+
+
+                <p class="text-cream-300/60
+                          text-sm leading-8 mt-7">
+
+                    Kopi Sandikala hadir dari sebuah keinginan
+                    sederhana: menghadirkan kopi berkualitas
+                    dengan rasa yang dekat dengan kehidupan
+                    sehari-hari.
+
+                </p>
+
+
+                <p class="text-cream-300/60
+                          text-sm leading-8 mt-4">
+
+                    Karena bagi kami, kopi bukan hanya tentang
+                    rasa. Tetapi tentang orang-orang, cerita,
+                    dan momen yang membuatnya menjadi kenangan.
+
+                </p>
+
+
+                <div class="gold-line my-8"></div>
+
+
+                <!-- Features -->
+
+                <div class="grid sm:grid-cols-3 gap-6">
+
+
+                    <div>
+
+                        <i class="fa-solid fa-seedling
+                                  text-gold-400 text-lg">
+                        </i>
+
+                        <h3 class="text-xs font-semibold mt-3">
+                            Biji Pilihan
+                        </h3>
+
+                        <p class="text-[10px]
+                                  text-cream-300/40
+                                  mt-2 leading-5">
+                            Dipilih dari berbagai daerah
+                            terbaik Indonesia.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-mug-hot
+                                  text-gold-400 text-lg">
+                        </i>
+
+                        <h3 class="text-xs font-semibold mt-3">
+                            Freshly Brewed
+                        </h3>
+
+                        <p class="text-[10px]
+                                  text-cream-300/40
+                                  mt-2 leading-5">
+                            Disajikan fresh untuk setiap
+                            pelanggan.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-heart
+                                  text-gold-400 text-lg">
+                        </i>
+
+                        <h3 class="text-xs font-semibold mt-3">
+                            Dibuat dengan Cinta
+                        </h3>
+
+                        <p class="text-[10px]
+                                  text-cream-300/40
+                                  mt-2 leading-5">
+                            Karena setiap detail punya arti.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <p
-      class="max-w-md text-sm md:text-base leading-7 opacity-55"
-    >
-      LUNEAID is a local fashion brand focused on
-      everyday polo shirts. We combine simple
-      silhouettes with comfortable materials so
-      every piece feels easy to wear.
-    </p>
-
-  </div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- COLLECTION -->
-<!-- ================================================= -->
 
-<section
-  id="collection"
-  class="px-4 md:px-8"
->
+<!-- =====================================================
+     MENU
+===================================================== -->
 
-  <div
-    class="max-w-[1450px] mx-auto"
-  >
+<section id="menu" class="py-28 bg-coffee-900/60">
 
-    <!-- COLLECTION HEADER -->
-
-    <div
-      class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-[28px] p-7 md:p-10 flex flex-col md:flex-row md:items-end justify-between gap-8"
-    >
-
-      <div>
-
-        <p class="text-xs opacity-40 uppercase tracking-[.2em] mb-4">
-          LUNEAID Collection
-        </p>
-
-        <h2
-          class="font-extrabold text-5xl md:text-7xl tracking-[-.08em]"
-        >
-          FIND YOUR
-          <br>
-          POLO.
-        </h2>
-
-      </div>
+    <div class="max-w-7xl mx-auto px-6">
 
 
-      <p class="max-w-sm text-sm opacity-50 leading-6">
-        Four essential styles designed to fit
-        different moods, days, and personalities.
-      </p>
+        <!-- Heading -->
 
-    </div>
+        <div class="flex flex-col md:flex-row
+                    md:items-end
+                    justify-between gap-6 mb-12">
+
+            <div>
+
+                <div class="flex items-center gap-3 mb-5">
+
+                    <span class="w-8 h-px bg-gold-400"></span>
+
+                    <span class="text-gold-400 text-[10px]
+                                 uppercase tracking-[.3em]">
+                        Our Favorites
+                    </span>
+
+                </div>
+
+                <h2 class="serif text-4xl md:text-5xl">
+                    Pilihan Favorit
+                </h2>
+
+                <p class="text-sm text-cream-300/50 mt-4">
+                    Temukan rasa yang akan menjadi kenangan baru.
+                </p>
+
+            </div>
 
 
-    <!-- PRODUCTS -->
-
-    <div
-      class="grid md:grid-cols-2 gap-4 mt-4"
-    >
-
-
-      <!-- PRODUCT 1 -->
-
-      <article class="product-card">
-
-        <div
-          class="relative h-[520px] md:h-[600px] rounded-[26px] overflow-hidden bg-[#e8e0d0]"
-        >
-
-          <img
-            src="https://i.pinimg.com/736x/dd/23/e3/dd23e374462d0391424d260dfbd03e41.jpg"
-            alt="Signature Polo"
-            class="product-image w-full h-full object-cover"
-          >
-
-          <div
-            class="absolute top-5 left-5 bg-[#f5f0e5] rounded-full px-4 py-2 text-xs font-semibold"
-          >
-            BEST SELLER
-          </div>
-
-          <button
-            class="arrow absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] flex items-center justify-center"
-          >
-            ↗
-          </button>
+            <a href="#"
+               class="text-xs text-gold-300
+                      border-b border-gold-400/40
+                      pb-2">
+                Lihat Semua Menu
+                <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
 
         </div>
 
 
-        <div class="flex justify-between items-start py-5 px-1">
 
-          <div>
+        <!-- Products -->
 
-            <h3 class="font-bold">
-              Signature Polo
-            </h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-            <p class="text-sm opacity-40 mt-1">
-              Dark Green
+
+            <!-- Product 1 -->
+
+            <div class="premium-card rounded-3xl overflow-hidden">
+
+                <div class="relative h-72 image-hover">
+
+                    <span class="absolute top-4 left-4 z-10
+                                 bg-gold-400 text-coffee-950
+                                 text-[9px] font-bold
+                                 uppercase tracking-wider
+                                 px-3 py-1.5 rounded-full">
+                        Best Seller
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=85&w=700&auto=format&fit=crop"
+                        class="w-full h-full object-cover"
+                        alt="Kenangan Mantan"
+                    >
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p class="text-[9px] uppercase
+                              tracking-[.2em]
+                              text-gold-400">
+                        Signature
+                    </p>
+
+                    <h3 class="serif text-xl mt-2">
+                        Kenangan Mantan
+                    </h3>
+
+                    <p class="text-xs text-cream-300/45
+                              leading-6 mt-3">
+                        Kopi susu dengan rasa khas
+                        yang selalu bikin kangen.
+                    </p>
+
+
+                    <div class="flex items-center
+                                justify-between
+                                mt-6 pt-5
+                                border-t border-white/10">
+
+                        <span class="font-semibold text-sm">
+                            Rp 18.000
+                        </span>
+
+                        <button
+                            class="w-9 h-9 rounded-full
+                                   border border-white/10
+                                   hover:bg-gold-400
+                                   hover:text-coffee-950
+                                   transition">
+
+                            <i class="fa-solid fa-plus text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 2 -->
+
+            <div class="premium-card rounded-3xl overflow-hidden">
+
+                <div class="relative h-72 image-hover">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=85&w=700&auto=format&fit=crop"
+                        class="w-full h-full object-cover"
+                        alt="Avocado Coffee"
+                    >
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p class="text-[9px] uppercase
+                              tracking-[.2em]
+                              text-gold-400">
+                        Creamy
+                    </p>
+
+                    <h3 class="serif text-xl mt-2">
+                        Avocado Coffee
+                    </h3>
+
+                    <p class="text-xs text-cream-300/45
+                              leading-6 mt-3">
+                        Perpaduan alpukat segar
+                        dan kopi yang creamy.
+                    </p>
+
+
+                    <div class="flex items-center
+                                justify-between
+                                mt-6 pt-5
+                                border-t border-white/10">
+
+                        <span class="font-semibold text-sm">
+                            Rp 22.000
+                        </span>
+
+                        <button
+                            class="w-9 h-9 rounded-full
+                                   border border-white/10
+                                   hover:bg-gold-400
+                                   hover:text-coffee-950
+                                   transition">
+
+                            <i class="fa-solid fa-plus text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 3 -->
+
+            <div class="premium-card rounded-3xl overflow-hidden">
+
+                <div class="relative h-72 image-hover">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=85&w=700&auto=format&fit=crop"
+                        class="w-full h-full object-cover"
+                        alt="Americano"
+                    >
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p class="text-[9px] uppercase
+                              tracking-[.2em]
+                              text-gold-400">
+                        Classic
+                    </p>
+
+                    <h3 class="serif text-xl mt-2">
+                        Americano
+                    </h3>
+
+                    <p class="text-xs text-cream-300/45
+                              leading-6 mt-3">
+                        Kopi hitam dengan rasa
+                        bold yang autentik.
+                    </p>
+
+
+                    <div class="flex items-center
+                                justify-between
+                                mt-6 pt-5
+                                border-t border-white/10">
+
+                        <span class="font-semibold text-sm">
+                            Rp 15.000
+                        </span>
+
+                        <button
+                            class="w-9 h-9 rounded-full
+                                   border border-white/10
+                                   hover:bg-gold-400
+                                   hover:text-coffee-950
+                                   transition">
+
+                            <i class="fa-solid fa-plus text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 4 -->
+
+            <div class="premium-card rounded-3xl overflow-hidden">
+
+                <div class="relative h-72 image-hover">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?q=85&w=700&auto=format&fit=crop"
+                        class="w-full h-full object-cover"
+                        alt="Choco Creamy"
+                    >
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p class="text-[9px] uppercase
+                              tracking-[.2em]
+                              text-gold-400">
+                        Non Coffee
+                    </p>
+
+                    <h3 class="serif text-xl mt-2">
+                        Choco Creamy
+                    </h3>
+
+                    <p class="text-xs text-cream-300/45
+                              leading-6 mt-3">
+                        Cokelat premium dengan
+                        tekstur lembut dan creamy.
+                    </p>
+
+
+                    <div class="flex items-center
+                                justify-between
+                                mt-6 pt-5
+                                border-t border-white/10">
+
+                        <span class="font-semibold text-sm">
+                            Rp 20.000
+                        </span>
+
+                        <button
+                            class="w-9 h-9 rounded-full
+                                   border border-white/10
+                                   hover:bg-gold-400
+                                   hover:text-coffee-950
+                                   transition">
+
+                            <i class="fa-solid fa-plus text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section class="py-28">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-xl mx-auto mb-14">
+
+            <span class="text-gold-400 uppercase
+                         tracking-[.3em] text-[10px]">
+                Explore
+            </span>
+
+            <h2 class="serif text-4xl md:text-5xl mt-4">
+                Temukan Favoritmu
+            </h2>
+
+            <p class="text-sm text-cream-300/45 mt-5 leading-7">
+                Pilih dari berbagai kategori minuman
+                yang dibuat untuk menemani setiap suasana.
             </p>
 
-          </div>
-
-          <p class="font-semibold">
-            Rp189K
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 2 -->
-
-      <article class="product-card md:mt-20">
-
-        <div
-          class="relative h-[520px] md:h-[600px] rounded-[26px] overflow-hidden bg-[#e8e0d0]"
-        >
-
-          <img
-            src="https://i.pinimg.com/1200x/61/96/8d/61968d629d10d4780cd6890d96571889.jpg"
-            alt="Essential Polo"
-            class="product-image w-full h-full object-cover"
-          >
-
-          <div
-            class="absolute top-5 left-5 bg-[#f5f0e5] rounded-full px-4 py-2 text-xs font-semibold"
-          >
-            ESSENTIAL
-          </div>
-
-          <button
-            class="arrow absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] flex items-center justify-center"
-          >
-            ↗
-          </button>
-
         </div>
 
 
-        <div class="flex justify-between items-start py-5 px-1">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-          <div>
 
-            <h3 class="font-bold">
-              Essential Polo
-            </h3>
+            <a href="#"
+               class="premium-card rounded-3xl p-6 group">
 
-            <p class="text-sm opacity-40 mt-1">
-              Cream
-            </p>
+                <div class="w-12 h-12 rounded-2xl
+                            bg-gold-400/10
+                            flex items-center justify-center">
 
-          </div>
+                    <i class="fa-solid fa-mug-hot
+                              text-gold-400">
+                    </i>
 
-          <p class="font-semibold">
-            Rp179K
-          </p>
+                </div>
+
+                <h3 class="serif text-xl mt-6">
+                    Kopi Susu
+                </h3>
+
+                <p class="text-[10px]
+                          text-cream-300/40 mt-2">
+                    10+ Menu
+                </p>
+
+                <div class="mt-7 text-gold-400
+                            text-xs
+                            group-hover:translate-x-2
+                            transition">
+
+                    Explore
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </div>
+
+            </a>
+
+
+
+            <a href="#"
+               class="premium-card rounded-3xl p-6 group">
+
+                <div class="w-12 h-12 rounded-2xl
+                            bg-gold-400/10
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-leaf
+                              text-gold-400">
+                    </i>
+
+                </div>
+
+                <h3 class="serif text-xl mt-6">
+                    Non Coffee
+                </h3>
+
+                <p class="text-[10px]
+                          text-cream-300/40 mt-2">
+                    8+ Menu
+                </p>
+
+                <div class="mt-7 text-gold-400
+                            text-xs
+                            group-hover:translate-x-2
+                            transition">
+
+                    Explore
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </div>
+
+            </a>
+
+
+
+            <a href="#"
+               class="premium-card rounded-3xl p-6 group">
+
+                <div class="w-12 h-12 rounded-2xl
+                            bg-gold-400/10
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-star
+                              text-gold-400">
+                    </i>
+
+                </div>
+
+                <h3 class="serif text-xl mt-6">
+                    Signature
+                </h3>
+
+                <p class="text-[10px]
+                          text-cream-300/40 mt-2">
+                    6+ Menu
+                </p>
+
+                <div class="mt-7 text-gold-400
+                            text-xs
+                            group-hover:translate-x-2
+                            transition">
+
+                    Explore
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </div>
+
+            </a>
+
+
+
+            <a href="#"
+               class="premium-card rounded-3xl p-6 group">
+
+                <div class="w-12 h-12 rounded-2xl
+                            bg-gold-400/10
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-cookie-bite
+                              text-gold-400">
+                    </i>
+
+                </div>
+
+                <h3 class="serif text-xl mt-6">
+                    Snack & Pastry
+                </h3>
+
+                <p class="text-[10px]
+                          text-cream-300/40 mt-2">
+                    5+ Menu
+                </p>
+
+                <div class="mt-7 text-gold-400
+                            text-xs
+                            group-hover:translate-x-2
+                            transition">
+
+                    Explore
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </div>
+
+            </a>
+
 
         </div>
-
-      </article>
-
-
-      <!-- PRODUCT 3 -->
-
-      <article class="product-card">
-
-        <div
-          class="relative h-[520px] md:h-[600px] rounded-[26px] overflow-hidden bg-[#e8e0d0]"
-        >
-
-          <img
-            src="https://i.pinimg.com/736x/8b/e9/d5/8be9d5307f0dbca582da09370fd111b4.jpg"
-            alt="Daily Polo"
-            class="product-image w-full h-full object-cover"
-          >
-
-          <div
-            class="absolute top-5 left-5 bg-[#f5f0e5] rounded-full px-4 py-2 text-xs font-semibold"
-          >
-            DAILY
-          </div>
-
-          <button
-            class="arrow absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] flex items-center justify-center"
-          >
-            ↗
-          </button>
-
-        </div>
-
-
-        <div class="flex justify-between items-start py-5 px-1">
-
-          <div>
-
-            <h3 class="font-bold">
-              Daily Polo
-            </h3>
-
-            <p class="text-sm opacity-40 mt-1">
-              Olive
-            </p>
-
-          </div>
-
-          <p class="font-semibold">
-            Rp199K
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 4 -->
-
-      <article class="product-card md:mt-20">
-
-        <div
-          class="relative h-[520px] md:h-[600px] rounded-[26px] overflow-hidden bg-[#e8e0d0]"
-        >
-
-          <img
-            src="https://i.pinimg.com/736x/38/df/dc/38dfdca58d3128b17875854a6ce09ac6.jpg"
-            alt="Edition Polo"
-            class="product-image w-full h-full object-cover"
-          >
-
-          <div
-            class="absolute top-5 left-5 bg-[#f5f0e5] rounded-full px-4 py-2 text-xs font-semibold"
-          >
-            LIMITED
-          </div>
-
-          <button
-            class="arrow absolute bottom-5 right-5 w-12 h-12 rounded-full bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] flex items-center justify-center"
-          >
-            ↗
-          </button>
-
-        </div>
-
-
-        <div class="flex justify-between items-start py-5 px-1">
-
-          <div>
-
-            <h3 class="font-bold">
-              Edition Polo
-            </h3>
-
-            <p class="text-sm opacity-40 mt-1">
-              Forest
-            </p>
-
-          </div>
-
-          <p class="font-semibold">
-            Rp219K
-          </p>
-
-        </div>
-
-      </article>
 
     </div>
-
-  </div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- FEATURE BANNER -->
-<!-- ================================================= -->
 
-<section class="px-4 md:px-8 py-24">
+<!-- =====================================================
+     TESTIMONIAL
+===================================================== -->
 
-  <div
-    class="max-w-[1450px] mx-auto relative overflow-hidden rounded-[28px] h-[480px] md:h-[550px] bg-[oklch(27.4%_0.072_132.109)]"
-  >
+<section id="testimonial"
+         class="py-28 bg-coffee-900/60">
 
-    <img
-      src="https://cdn.corenexis.com/f/VJDNrIhQOjK.jpg"
-      alt="LUNEAID Fashion"
-      class="w-full h-full object-cover opacity-75"
-    >
+    <div class="max-w-7xl mx-auto px-6">
 
 
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-[oklch(27.4%_0.072_132.109)]/90 to-transparent"
-    ></div>
+        <div class="text-center mb-14">
+
+            <span class="text-gold-400 uppercase
+                         tracking-[.3em] text-[10px]">
+                Customer Stories
+            </span>
+
+            <h2 class="serif text-4xl md:text-5xl mt-4">
+                Mereka Bilang Apa?
+            </h2>
+
+        </div>
 
 
-    <div
-      class="absolute bottom-8 md:bottom-12 left-7 md:left-12 right-7 md:right-12 text-[#f5f0e5]"
-    >
+        <div class="grid md:grid-cols-3 gap-6">
 
-      <p class="text-xs uppercase tracking-[.2em] opacity-60 mb-4">
-        Made for your everyday
-      </p>
 
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div class="premium-card rounded-3xl p-8">
 
-        <h2
-          class="font-extrabold text-5xl md:text-7xl leading-[.85] tracking-[-.08em]"
-        >
-          WEAR IT.
-          <br>
-          MAKE IT YOURS.
-        </h2>
+                <div class="text-gold-400 text-xs mb-5">
 
-        <p class="max-w-xs text-sm opacity-60 leading-6">
-          One polo. Endless ways to make it
-          your own.
-        </p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
 
-      </div>
+                </div>
+
+                <p class="serif italic text-lg
+                          text-cream-100/80 leading-8">
+
+                    "Rasanya selalu konsisten.
+                    Kopi Kenangan jadi teman
+                    yang pas buat mulai hari."
+
+                </p>
+
+                <div class="gold-line my-6"></div>
+
+                <p class="text-xs font-semibold">
+                    Sarah A.
+                </p>
+
+                <p class="text-[9px]
+                          text-cream-300/40 mt-1">
+                    Coffee Lover
+                </p>
+
+            </div>
+
+
+
+            <div class="premium-card rounded-3xl p-8">
+
+                <div class="text-gold-400 text-xs mb-5">
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <p class="serif italic text-lg
+                          text-cream-100/80 leading-8">
+
+                    "Pilihan menunya banyak,
+                    rasanya enak dan harganya
+                    masih cocok di kantong."
+
+                </p>
+
+                <div class="gold-line my-6"></div>
+
+                <p class="text-xs font-semibold">
+                    Rizky R.
+                </p>
+
+                <p class="text-[9px]
+                          text-cream-300/40 mt-1">
+                    Customer
+                </p>
+
+            </div>
+
+
+
+            <div class="premium-card rounded-3xl p-8">
+
+                <div class="text-gold-400 text-xs mb-5">
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <p class="serif italic text-lg
+                          text-cream-100/80 leading-8">
+
+                    "Tempatnya nyaman,
+                    kopinya enak, cocok
+                    buat kerja atau santai."
+
+                </p>
+
+                <div class="gold-line my-6"></div>
+
+                <p class="text-xs font-semibold">
+                    Nabila S.
+                </p>
+
+                <p class="text-[9px]
+                          text-cream-300/40 mt-1">
+                    Customer
+                </p>
+
+            </div>
+
+
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- WHY LUNEAID -->
-<!-- ================================================= -->
 
-<section
-  id="why"
-  class="px-4 md:px-8 py-10"
->
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
 
-  <div
-    class="max-w-[1450px] mx-auto"
-  >
+<section class="py-28">
 
-    <div
-      class="text-center mb-14"
-    >
+    <div class="max-w-6xl mx-auto px-6">
 
-      <p
-        class="text-xs uppercase tracking-[.2em] opacity-40 mb-4"
-      >
-        Why LUNEAID?
-      </p>
+        <div class="relative overflow-hidden
+                    rounded-[2rem]
+                    border border-gold-400/20
+                    min-h-[420px]
+                    flex items-center">
 
-      <h2
-        class="font-extrabold text-5xl md:text-7xl tracking-[-.08em]"
-      >
-        MADE TO BE
-        <span class="opacity-40">
-          WORN.
-        </span>
-      </h2>
+            <img
+                src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=85&w=1600&auto=format&fit=crop"
+                class="absolute inset-0
+                       w-full h-full object-cover opacity-40"
+                alt="Coffee"
+            >
 
-      <p
-        class="max-w-lg mx-auto mt-5 text-sm opacity-45 leading-6"
-      >
-        We focus on the things that matter:
-        comfort, quality, and simple design.
-      </p>
+            <div class="absolute inset-0
+                        bg-gradient-to-r
+                        from-coffee-950
+                        via-coffee-950/90
+                        to-coffee-950/30">
+            </div>
+
+
+            <div class="relative z-10 p-10 md:p-16 max-w-xl">
+
+                <span class="text-gold-400 text-[10px]
+                             uppercase tracking-[.3em]">
+                    Your Next Favorite
+                </span>
+
+                <h2 class="serif text-4xl md:text-5xl
+                           leading-tight mt-5">
+
+                    Temukan Rasa
+                    <span class="italic text-gold-300">
+                        Favoritmu.
+                    </span>
+
+                </h2>
+
+                <p class="text-sm
+                          text-cream-300/55
+                          leading-7 mt-5">
+
+                    Satu cangkir mungkin terlihat sederhana.
+                    Tapi siapa tahu, dari sana akan lahir
+                    kenangan baru.
+
+                </p>
+
+                <a href="#menu"
+                   class="gold-button inline-flex
+                          items-center
+                          px-7 py-3.5
+                          rounded-full
+                          text-xs font-semibold
+                          mt-8">
+
+                    Pesan Sekarang
+
+                    <i class="fa-solid fa-arrow-right ml-3"></i>
+
+                </a>
+
+            </div>
+
+        </div>
 
     </div>
-
-
-    <div
-      class="grid md:grid-cols-3 gap-4"
-    >
-
-
-      <!-- CARD 1 -->
-
-      <div
-        class="bg-[#e8e0d0] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between hover:-translate-y-1 transition"
-      >
-
-        <span class="text-3xl opacity-50">
-          01
-        </span>
-
-        <div>
-
-          <h3 class="font-bold text-2xl mb-3">
-            Comfortable
-          </h3>
-
-          <p class="text-sm opacity-50 leading-6">
-            Soft and comfortable materials
-            made for everyday activities.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- CARD 2 -->
-
-      <div
-        class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between hover:-translate-y-1 transition"
-      >
-
-        <span class="text-3xl opacity-50">
-          02
-        </span>
-
-        <div>
-
-          <h3 class="font-bold text-2xl mb-3">
-            Easy to Style
-          </h3>
-
-          <p class="text-sm opacity-50 leading-6">
-            Simple colors and silhouettes
-            that work with your wardrobe.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- CARD 3 -->
-
-      <div
-        class="bg-[#eee7d9] rounded-[26px] p-8 min-h-[260px] flex flex-col justify-between hover:-translate-y-1 transition"
-      >
-
-        <span class="text-3xl opacity-50">
-          03
-        </span>
-
-        <div>
-
-          <h3 class="font-bold text-2xl mb-3">
-            Local Brand
-          </h3>
-
-          <p class="text-sm opacity-50 leading-6">
-            Proudly created as a local fashion
-            brand for Indonesian customers.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
 
+</main>
 
-<!-- ================================================= -->
-<!-- TESTIMONIAL -->
-<!-- ================================================= -->
 
-<section class="px-4 md:px-8 py-24">
 
-  <div
-    class="max-w-[1450px] mx-auto bg-[#e8e0d0] rounded-[28px] p-8 md:p-14"
-  >
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
-    <div
-      class="grid md:grid-cols-2 gap-12 items-center"
+<footer class="border-t border-white/10 py-12">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+
+        <div class="grid md:grid-cols-4 gap-10">
+
+
+            <!-- Brand -->
+
+            <div class="md:col-span-2">
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-10 h-10 rounded-full
+                                border border-gold-400/40
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-mug-hot
+                                  text-gold-400">
+                        </i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="serif text-lg">
+                            Kopi Sandikala
+                        </h3>
+
+                        <p class="text-[8px]
+                                  tracking-[.3em]
+                                  uppercase
+                                  text-gold-400">
+                            Coffee & Memories
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p class="text-xs
+                          text-cream-300/40
+                          leading-6 max-w-sm mt-5">
+
+                    Menghadirkan rasa kopi Indonesia
+                    untuk menemani setiap cerita,
+                    setiap hari.
+
+                </p>
+
+
+                <div class="flex gap-3 mt-6">
+
+                    <a href="#"
+                       class="w-9 h-9 rounded-full
+                              border border-white/10
+                              flex items-center justify-center
+                              hover:border-gold-400
+                              hover:text-gold-400
+                              transition">
+
+                        <i class="fa-brands fa-instagram text-xs"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="w-9 h-9 rounded-full
+                              border border-white/10
+                              flex items-center justify-center
+                              hover:border-gold-400
+                              hover:text-gold-400
+                              transition">
+
+                        <i class="fa-brands fa-tiktok text-xs"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="w-9 h-9 rounded-full
+                              border border-white/10
+                              flex items-center justify-center
+                              hover:border-gold-400
+                              hover:text-gold-400
+                              transition">
+
+                        <i class="fa-brands fa-youtube text-xs"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Navigation -->
+
+            <div>
+
+                <h4 class="text-xs font-semibold mb-5">
+                    Navigation
+                </h4>
+
+                <div class="space-y-3
+                            text-xs
+                            text-cream-300/40">
+
+                    <a href="#home"
+                       class="block hover:text-gold-300 transition">
+                        Beranda
+                    </a>
+
+                    <a href="#about"
+                       class="block hover:text-gold-300 transition">
+                        Tentang Kami
+                    </a>
+
+                    <a href="#menu"
+                       class="block hover:text-gold-300 transition">
+                        Menu
+                    </a>
+
+                    <a href="#testimonial"
+                       class="block hover:text-gold-300 transition">
+                        Testimoni
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Contact -->
+
+            <div>
+
+                <h4 class="text-xs font-semibold mb-5">
+                    Contact
+                </h4>
+
+                <div class="space-y-4<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kenzia — Portfolio</title>
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+        rel="stylesheet"
     >
 
-      <div>
+    <!-- TAILWIND -->
+    <link rel="stylesheet" href="../dist/output.css">
 
-        <p
-          class="text-xs uppercase tracking-[.2em] opacity-40 mb-5"
-        >
-          What people say
-        </p>
+    <style>
 
-        <h2
-          class="font-extrabold text-5xl md:text-6xl tracking-[-.07em] leading-[.9]"
-        >
-          YOUR NEW
-          <br>
-          FAVORITE
-          <br>
-          POLO.
-        </h2>
+        /* =====================================================
+           ROOT
+        ===================================================== */
 
-      </div>
+        :root {
+            --bg: #171416;
+            --surface: #241d20;
+            --surface2: #302529;
 
+            --cream: #f1e6dc;
+            --muted: #968984;
 
-      <div>
+            --red: #b8495a;
+            --red-light: #d76777;
 
-        <div class="text-3xl mb-5">
-          ★★★★★
-        </div>
-
-        <p
-          class="text-lg md:text-xl leading-8 max-w-lg"
-        >
-          “The fit is simple but still looks
-          really clean. It's the kind of polo
-          I can wear almost anywhere.”
-        </p>
-
-        <p
-          class="mt-7 text-sm font-semibold"
-        >
-          — Alya, LUNEAID customer
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+            --line: rgba(241, 230, 220, .12);
+        }
 
 
-<!-- ================================================= -->
-<!-- CTA -->
-<!-- ================================================= -->
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-<section
-  id="contact"
-  class="px-4 md:px-8 pb-24"
->
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
-  <div
-    class="max-w-[1450px] mx-auto bg-[oklch(27.4%_0.072_132.109)] rounded-[28px] text-[#f5f0e5] p-8 md:p-14"
-  >
+        body {
+            background: var(--bg);
+            color: var(--cream);
 
-    <div
-      class="flex flex-col md:flex-row md:items-end justify-between gap-12"
-    >
+            font-family: "Manrope", sans-serif;
 
-      <div>
+            overflow-x: hidden;
+        }
 
-        <p
-          class="text-xs uppercase tracking-[.2em] opacity-40 mb-5"
-        >
-          LUNEAID
-        </p>
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-        <h2
-          class="font-extrabold text-6xl md:text-8xl leading-[.8] tracking-[-.09em]"
-        >
-          FIND
-          <br>
-          YOUR
-          <br>
-          POLO.
-        </h2>
+        img {
+            display: block;
+            width: 100%;
+        }
 
-      </div>
+        button {
+            font-family: inherit;
+        }
+
+        ::selection {
+            background: var(--cream);
+            color: var(--bg);
+        }
+
+        .mono {
+            font-family: "DM Mono", monospace;
+        }
+
+        .serif {
+            font-family: "Playfair Display", serif;
+        }
 
 
-      <div>
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
 
-        <p
-          class="max-w-sm text-sm opacity-50 leading-6 mb-6"
-        >
-          Ready to find your everyday
-          favorite?
-        </p>
+        .nav-wrap {
+            position: fixed;
 
-        <a
-          href="mailto:hello@lunea.id"
-          class="inline-flex items-center gap-4 bg-[#f5f0e5] text-[oklch(27.4%_0.072_132.109)] px-6 py-3 rounded-full font-semibold text-sm hover:bg-white transition"
-        >
-          Get in touch
-          <span>↗</span>
+            top: 20px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: min(1180px, calc(100% - 40px));
+
+            z-index: 100;
+        }
+
+        .navbar {
+            height: 68px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 10px 0 22px;
+
+            border:
+                1px solid rgba(241, 230, 220, .12);
+
+            border-radius: 999px;
+
+            background:
+                rgba(31, 25, 27, .82);
+
+            backdrop-filter: blur(22px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--cream);
+            color: var(--bg);
+
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 5px;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            padding: 10px 15px;
+
+            color: #aa9e98;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            transition: .3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cream);
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            bottom: 3px;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: var(--red-light);
+
+            transform:
+                translateX(-50%)
+                scale(0);
+
+            transition: .3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform:
+                translateX(-50%)
+                scale(1);
+        }
+
+        .nav-button {
+            padding: 12px 19px;
+
+            border-radius: 999px;
+
+            background: var(--cream);
+            color: var(--bg);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            transition: .3s ease;
+        }
+
+        .nav-button:hover {
+            background: var(--red-light);
+            color: white;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            min-height: 100vh;
+
+            padding:
+                150px 7vw
+                80px;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            width: min(1200px, 100%);
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                .9fr 1.1fr;
+
+            align-items: center;
+
+            gap: 50px;
+        }
+
+        .eyebrow {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+            letter-spacing: .2em;
+
+            text-transform: uppercase;
+        }
+
+        .eyebrow-line {
+            width: 35px;
+            height: 1px;
+
+            background: var(--red-light);
+        }
+
+        .hero-title {
+            font-size:
+                clamp(65px, 8vw, 125px);
+
+            line-height: .79;
+
+            letter-spacing: -.08em;
+
+            font-weight: 800;
+        }
+
+        .hero-title .outline {
+            color: transparent;
+
+            -webkit-text-stroke:
+                1px rgba(241, 230, 220, .7);
+        }
+
+        .hero-title .italic {
+            display: block;
+
+            margin-left: 40px;
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-style: italic;
+
+            font-weight: 500;
+        }
+
+        .hero-description {
+            max-width: 430px;
+
+            margin:
+                40px 0 28px;
+
+            color: #9c908b;
+
+            font-size: 12px;
+
+            line-height: 1.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .hero-btn {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                14px 20px;
+
+            border-radius: 999px;
+
+            background: var(--cream);
+            color: var(--bg);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            transition: .3s ease;
+        }
+
+        .hero-btn:hover {
+            background: var(--red-light);
+            color: white;
+
+            transform: translateY(-3px);
+        }
+
+        .hero-btn span {
+            width: 22px;
+            height: 22px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--bg);
+            color: var(--cream);
+        }
+
+        .hero-link {
+            color: #968a85;
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .hero-link:hover {
+            color: var(--cream);
+        }
+
+
+        /* =====================================================
+           HERO IMAGE
+        ===================================================== */
+
+        .hero-visual {
+            position: relative;
+
+            min-height: 600px;
+
+            display: grid;
+            place-items: center;
+        }
+
+        .hero-ring {
+            position: absolute;
+
+            width: 540px;
+            height: 540px;
+
+            border:
+                1px solid rgba(241, 230, 220, .11);
+
+            border-radius: 50%;
+        }
+
+        .hero-ring::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 45px;
+
+            border:
+                1px solid rgba(184, 73, 90, .35);
+
+            border-radius: 50%;
+        }
+
+        .hero-image {
+            position: relative;
+
+            z-index: 2;
+
+            width: 390px;
+            height: 500px;
+
+            overflow: hidden;
+
+            border-radius:
+                200px 200px 20px 20px;
+
+            background: var(--surface2);
+
+            box-shadow:
+                30px 30px 80px
+                rgba(0, 0, 0, .35);
+
+            animation:
+                heroFloat 6s ease-in-out infinite;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .hero-label {
+            position: absolute;
+
+            left: 20px;
+            bottom: 20px;
+
+            padding: 9px 13px;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, .15);
+
+            border-radius: 999px;
+
+            background:
+                rgba(20, 16, 18, .55);
+
+            backdrop-filter: blur(10px);
+
+            color: white;
+
+            font-size: 8px;
+
+            letter-spacing: .1em;
+        }
+
+        .hero-card {
+            position: absolute;
+
+            right: 0;
+            bottom: 55px;
+
+            z-index: 5;
+
+            width: 150px;
+
+            padding: 18px;
+
+            border:
+                1px solid
+                rgba(241, 230, 220, .12);
+
+            border-radius: 16px;
+
+            background:
+                rgba(45, 35, 39, .9);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .hero-card strong {
+            display: block;
+
+            font-size: 28px;
+        }
+
+        .hero-card small {
+            color: #938782;
+
+            font-size: 8px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           SECTION
+        ===================================================== */
+
+        .section {
+            width:
+                min(1180px, calc(100% - 12vw));
+
+            margin: auto;
+
+            padding: 130px 0;
+        }
+
+        .section-header {
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            margin-bottom: 70px;
+        }
+
+        .section-number {
+            margin-bottom: 12px;
+
+            color: var(--red-light);
+
+            font-size: 9px;
+
+            letter-spacing: .18em;
+        }
+
+        .section-title {
+            font-size:
+                clamp(45px, 6vw, 80px);
+
+            line-height: .88;
+
+            letter-spacing: -.07em;
+        }
+
+        .section-title em {
+            font-family:
+                "Playfair Display", serif;
+
+            font-weight: 500;
+        }
+
+        .section-desc {
+            max-width: 290px;
+
+            color: #8c807c;
+
+            font-size: 11px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                .8fr 1.2fr;
+
+            gap: 80px;
+        }
+
+        .about-big {
+            font-size:
+                clamp(25px, 3vw, 42px);
+
+            line-height: 1.15;
+
+            letter-spacing: -.045em;
+        }
+
+        .about-big span {
+            color: #756b67;
+        }
+
+        .about-text {
+            color: #918580;
+
+            font-size: 12px;
+
+            line-height: 2;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            margin-top: 45px;
+
+            border-top:
+                1px solid var(--line);
+        }
+
+        .stat {
+            padding-top: 20px;
+        }
+
+        .stat-number {
+            font-size: 35px;
+
+            font-weight: 800;
+
+            letter-spacing: -.06em;
+        }
+
+        .stat-label {
+            color: #776d69;
+
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           EXPERIENCE
+        ===================================================== */
+
+        .experience-list {
+            border-top:
+                1px solid var(--line);
+        }
+
+        .experience {
+            display: grid;
+
+            grid-template-columns:
+                120px 1fr 240px;
+
+            gap: 30px;
+
+            padding: 30px 0;
+
+            border-bottom:
+                1px solid var(--line);
+
+            transition: .3s ease;
+        }
+
+        .experience:hover {
+            padding-left: 15px;
+        }
+
+        .experience-year {
+            color: #706763;
+
+            font-size: 9px;
+        }
+
+        .experience-role {
+            font-size: 21px;
+
+            font-weight: 700;
+
+            letter-spacing: -.04em;
+        }
+
+        .experience-company {
+            margin-top: 5px;
+
+            color: var(--red-light);
+
+            font-size: 8px;
+
+            letter-spacing: .1em;
+        }
+
+        .experience-description {
+            color: #7d726e;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           PROJECT SECTION
+        ===================================================== */
+
+        .projects-section {
+            width: 100%;
+
+            padding:
+                140px 0 160px;
+
+            overflow: hidden;
+        }
+
+        .projects-header {
+            width:
+                min(1180px, calc(100% - 12vw));
+
+            margin: 0 auto 50px;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+        }
+
+        .projects-counter {
+            color: #766c68;
+
+            font-size: 9px;
+
+            letter-spacing: .15em;
+        }
+
+
+        /* =====================================================
+           3D CAROUSEL
+        ===================================================== */
+
+        .carousel {
+            position: relative;
+
+            width: 100%;
+
+            height: 650px;
+
+            perspective: 1200px;
+
+            overflow: hidden;
+        }
+
+        .carousel::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            width: 650px;
+            height: 650px;
+
+            transform:
+                translate(-50%, -50%);
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(184, 73, 90, .12),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+        }
+
+        .carousel-track {
+            position: relative;
+
+            width: 100%;
+            height: 100%;
+
+            transform-style: preserve-3d;
+        }
+
+        .project-slide {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+
+            width: 360px;
+            height: 490px;
+
+            transform-style: preserve-3d;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            background: var(--surface2);
+
+            border:
+                1px solid
+                rgba(241, 230, 220, .13);
+
+            box-shadow:
+                0 30px 70px
+                rgba(0, 0, 0, .35);
+
+            transition:
+                transform .7s
+                cubic-bezier(.2, .8, .2, 1),
+                opacity .7s ease,
+                filter .7s ease;
+
+            cursor: pointer;
+        }
+
+        .project-slide img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform .7s ease;
+        }
+
+        .project-slide::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(15, 11, 13, .75),
+                    rgba(15, 11, 13, 0)
+                    55%
+                );
+
+            pointer-events: none;
+        }
+
+        .project-slide:hover img {
+            transform: scale(1.04);
+        }
+
+
+        /* =====================================================
+           CAROUSEL POSITIONS
+        ===================================================== */
+
+        .project-slide[data-position="center"] {
+            transform:
+                translate(-50%, -50%)
+                translateX(0)
+                scale(1);
+
+            opacity: 1;
+
+            z-index: 5;
+
+            filter: none;
+        }
+
+        .project-slide[data-position="left"] {
+            transform:
+                translate(-50%, -50%)
+                translateX(-390px)
+                rotateY(22deg)
+                scale(.78);
+
+            opacity: .72;
+
+            z-index: 3;
+
+            filter: brightness(.65);
+        }
+
+        .project-slide[data-position="right"] {
+            transform:
+                translate(-50%, -50%)
+                translateX(390px)
+                rotateY(-22deg)
+                scale(.78);
+
+            opacity: .72;
+
+            z-index: 3;
+
+            filter: brightness(.65);
+        }
+
+        .project-slide[data-position="far-left"] {
+            transform:
+                translate(-50%, -50%)
+                translateX(-680px)
+                rotateY(30deg)
+                scale(.6);
+
+            opacity: .25;
+
+            z-index: 1;
+
+            filter: brightness(.45);
+        }
+
+        .project-slide[data-position="far-right"] {
+            transform:
+                translate(-50%, -50%)
+                translateX(680px)
+                rotateY(-30deg)
+                scale(.6);
+
+            opacity: .25;
+
+            z-index: 1;
+
+            filter: brightness(.45);
+        }
+
+        .project-slide[data-position="hidden"] {
+            transform:
+                translate(-50%, -50%)
+                scale(.4);
+
+            opacity: 0;
+
+            z-index: 0;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           PROJECT INFO
+        ===================================================== */
+
+        .project-info {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            z-index: 5;
+
+            padding: 30px 25px 25px;
+        }
+
+        .project-type {
+            margin-bottom: 7px;
+
+            color:
+                var(--red-light);
+
+            font-size: 8px;
+
+            letter-spacing: .15em;
+        }
+
+        .project-name {
+            font-size: 28px;
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: -.06em;
+        }
+
+        .project-year {
+            margin-top: 7px;
+
+            color: #a79a95;
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           PROJECT NUMBER
+        ===================================================== */
+
+        .project-index {
+            position: absolute;
+
+            top: 18px;
+            left: 18px;
+
+            z-index: 7;
+
+            width: 35px;
+            height: 35px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.2);
+
+            border-radius: 50%;
+
+            background:
+                rgba(20, 16, 18, .5);
+
+            backdrop-filter: blur(10px);
+
+            color: white;
+
+            font-size: 8px;
+        }
+
+
+        /* =====================================================
+           ARROWS
+        ===================================================== */
+
+        .carousel-arrow {
+            position: absolute;
+
+            top: 50%;
+
+            z-index: 20;
+
+            width: 55px;
+            height: 55px;
+
+            display: grid;
+            place-items: center;
+
+            transform:
+                translateY(-50%);
+
+            border:
+                1px solid
+                rgba(241, 230, 220, .15);
+
+            border-radius: 50%;
+
+            background:
+                rgba(37, 29, 32, .88);
+
+            backdrop-filter: blur(12px);
+
+            color: var(--cream);
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            transition: .3s ease;
+        }
+
+        .carousel-arrow:hover {
+            background: var(--cream);
+
+            color: var(--bg);
+
+            transform:
+                translateY(-50%)
+                scale(1.08);
+        }
+
+        .carousel-prev {
+            left: 7%;
+        }
+
+        .carousel-next {
+            right: 7%;
+        }
+
+
+        /* =====================================================
+           PROJECT LABEL
+        ===================================================== */
+
+        .active-project {
+            position: relative;
+
+            z-index: 20;
+
+            margin-top: -25px;
+
+            text-align: center;
+        }
+
+        .active-project-label {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding:
+                13px 23px;
+
+            border:
+                1px solid
+                rgba(241, 230, 220, .13);
+
+            border-radius: 999px;
+
+            background:
+                rgba(43, 34, 37, .9);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, .25);
+        }
+
+        .active-project-label span:first-child {
+            color: var(--red-light);
+
+            font-size: 9px;
+        }
+
+        .active-project-label span:last-child {
+            color: var(--cream);
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 30px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 18px;
+
+            background: var(--surface);
+
+            transition: .3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(215, 103, 119, .35);
+        }
+
+        .skill-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-bottom: 30px;
+        }
+
+        .skill-name {
+            font-size: 18px;
+
+            font-weight: 700;
+        }
+
+        .skill-index {
+            color: var(--red-light);
+
+            font-size: 9px;
+        }
+
+        .skill-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+        .skill-tag {
+            padding: 8px 12px;
+
+            border:
+                1px solid var(--line);
+
+            border-radius: 999px;
+
+            color: #968984;
+
+            font-size: 8px;
+
+            transition: .3s ease;
+        }
+
+        .skill-tag:hover {
+            color: var(--cream);
+
+            border-color:
+                var(--red-light);
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+            padding:
+                150px 20px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            width: 550px;
+            height: 550px;
+
+            transform:
+                translate(-50%, -50%);
+
+            border:
+                1px solid
+                rgba(184, 73, 90, .15);
+
+            border-radius: 50%;
+        }
+
+        .contact-content {
+            position: relative;
+
+            z-index: 2;
+        }
+
+        .contact-small {
+            color: var(--red-light);
+
+            font-size: 9px;
+
+            letter-spacing: .2em;
+        }
+
+        .contact-title {
+            margin:
+                25px 0 40px;
+
+            font-size:
+                clamp(55px, 9vw, 120px);
+
+            line-height: .8;
+
+            letter-spacing: -.08em;
+        }
+
+        .contact-title em {
+            font-family:
+                "Playfair Display", serif;
+
+            font-weight: 500;
+        }
+
+        .contact-email {
+            display: inline-flex;
+
+            gap: 12px;
+
+            color: var(--cream);
+
+            padding-bottom: 10px;
+
+            border-bottom:
+                1px solid
+                rgba(241, 230, 220, .3);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: .3s ease;
+        }
+
+        .contact-email:hover {
+            color: var(--red-light);
+
+            border-color:
+                var(--red-light);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            width:
+                min(1180px, calc(100% - 12vw));
+
+            margin: auto;
+
+            padding:
+                30px 0 40px;
+
+            border-top:
+                1px solid var(--line);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            color: #6f6561;
+
+            font-size: 8px;
+        }
+
+        .socials {
+            display: flex;
+
+            gap: 20px;
+        }
+
+        .socials a:hover {
+            color: var(--cream);
+        }
+
+
+        /* =====================================================
+           ANIMATION
+        ===================================================== */
+
+        @keyframes heroFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-button {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 130px;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+            .eyebrow {
+                justify-content: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 550px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+            .experience {
+                grid-template-columns:
+                    90px 1fr;
+            }
+
+            .experience-description {
+                display: none;
+            }
+
+            .project-slide {
+                width: 320px;
+                height: 450px;
+            }
+
+            .project-slide[data-position="left"] {
+                transform:
+                    translate(-50%, -50%)
+                    translateX(-280px)
+                    rotateY(18deg)
+                    scale(.75);
+            }
+
+            .project-slide[data-position="right"] {
+                transform:
+                    translate(-50%, -50%)
+                    translateX(280px)
+                    rotateY(-18deg)
+                    scale(.75);
+            }
+
+            .project-slide[data-position="far-left"] {
+                opacity: 0;
+            }
+
+            .project-slide[data-position="far-right"] {
+                opacity: 0;
+            }
+
+            .carousel-prev {
+                left: 4%;
+            }
+
+            .carousel-next {
+                right: 4%;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .nav-wrap {
+                top: 12px;
+
+                width:
+                    calc(100% - 24px);
+            }
+
+            .navbar {
+                height: 60px;
+
+                padding-left: 16px;
+            }
+
+            .hero {
+                padding:
+                    120px 20px 60px;
+            }
+
+            .hero-title {
+                font-size:
+                    clamp(55px, 17vw, 90px);
+            }
+
+            .hero-title .italic {
+                margin-left: 5px;
+            }
+
+            .hero-visual {
+                min-height: 470px;
+            }
+
+            .hero-ring {
+                width: 340px;
+                height: 340px;
+            }
+
+            .hero-image {
+                width: 275px;
+                height: 370px;
+            }
+
+            .hero-card {
+                right: 0;
+
+                bottom: 20px;
+
+                width: 130px;
+            }
+
+            .section {
+                width:
+                    calc(100% - 40px);
+
+                padding:
+                    90px 0;
+            }
+
+            .section-header {
+                display: block;
+
+                margin-bottom: 45px;
+            }
+
+            .section-desc {
+                margin-top: 25px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                padding: 18px 0;
+
+                border-bottom:
+                    1px solid var(--line);
+            }
+
+            /* CAROUSEL MOBILE */
+
+            .projects-section {
+                padding:
+                    90px 0 120px;
+            }
+
+            .projects-header {
+                width:
+                    calc(100% - 40px);
+
+                display: block;
+
+                margin-bottom: 25px;
+            }
+
+            .projects-counter {
+                margin-top: 20px;
+            }
+
+            .carousel {
+                height: 530px;
+            }
+
+            .carousel::before {
+                width: 400px;
+                height: 400px;
+            }
+
+            .project-slide {
+                width: 245px;
+                height: 365px;
+
+                border-radius: 17px;
+            }
+
+            .project-slide[data-position="left"] {
+                transform:
+                    translate(-50%, -50%)
+                    translateX(-190px)
+                    rotateY(20deg)
+                    scale(.72);
+            }
+
+            .project-slide[data-position="right"] {
+                transform:
+                    translate(-50%, -50%)
+                    translateX(190px)
+                    rotateY(-20deg)
+                    scale(.72);
+            }
+
+            .project-slide[data-position="far-left"],
+            .project-slide[data-position="far-right"] {
+                opacity: 0;
+            }
+
+            .project-info {
+                padding:
+                    22px 18px;
+            }
+
+            .project-name {
+                font-size: 22px;
+            }
+
+            .carousel-arrow {
+                width: 43px;
+                height: 43px;
+
+                font-size: 15px;
+            }
+
+            .carousel-prev {
+                left: 12px;
+            }
+
+            .carousel-next {
+                right: 12px;
+            }
+
+            .active-project {
+                margin-top: -10px;
+            }
+
+            .active-project-label {
+                padding:
+                    11px 18px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                padding:
+                    100px 20px;
+            }
+
+            footer {
+                width:
+                    calc(100% - 40px);
+
+                flex-direction: column;
+
+                gap: 18px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<div class="nav-wrap">
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+
+            <span class="logo-mark">
+                K
+            </span>
+
+            KENZIA.
+
         </a>
 
-      </div>
+
+        <div class="nav-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#experience">
+                Experience
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#skills">
+                Skills
+            </a>
+
+        </div>
+
+
+        <a
+            href="#contact"
+            class="nav-button"
+        >
+            Let's Talk ↗
+        </a>
+
+    </nav>
+
+</div>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
+    id="home"
+    class="hero"
+>
+
+    <div class="hero-grid">
+
+
+        <div>
+
+            <div class="eyebrow mono">
+
+                <span class="eyebrow-line"></span>
+
+                Creative Developer
+
+            </div>
+
+
+            <h1 class="hero-title">
+
+                <span>
+                    CREATIVE
+                </span>
+
+                <span class="outline">
+                    DEVELOPER
+                </span>
+
+                <span class="italic">
+                    & designer.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                I create digital experiences that
+                combine thoughtful design, clean
+                interfaces, and meaningful interactions.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <a
+                    href="#projects"
+                    class="hero-btn"
+                >
+
+                    View my work
+
+                    <span>
+                        ↓
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#about"
+                    class="hero-link"
+                >
+                    More about me →
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="hero-visual">
+
+            <div class="hero-ring"></div>
+
+
+            <div class="hero-image">
+
+                <img
+                    src="../assets/profile.png"
+                    alt="Profile"
+                >
+
+                <div class="hero-label mono">
+                    Based in Indonesia
+                </div>
+
+            </div>
+
+
+            <div class="hero-card">
+
+                <strong>
+                    05+
+                </strong>
+
+                <small>
+                    Selected projects
+                    & digital experiences
+                </small>
+
+            </div>
+
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- FOOTER -->
-<!-- ================================================= -->
 
-<footer
-  class="bg-[oklch(27.4%_0.072_132.109)] text-[#f5f0e5] px-5 md:px-8 py-10"
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    id="about"
+    class="section"
 >
 
-  <div
-    class="max-w-[1450px] mx-auto"
-  >
+    <div class="section-header">
 
-    <div
-      class="grid md:grid-cols-4 gap-10 pb-10"
-    >
+        <div>
 
-      <div class="md:col-span-2">
+            <div class="section-number mono">
+                01 / ABOUT
+            </div>
 
-        <h2
-          class="font-extrabold text-3xl tracking-[-.08em]"
+            <h2 class="section-title">
+
+                A little
+                <em>about</em>
+
+                <br>
+
+                myself.
+
+            </h2>
+
+        </div>
+
+
+        <p class="section-desc">
+
+            Designer mindset, developer workflow,
+            and curiosity for creating better
+            digital products.
+
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+        <div class="about-big">
+
+            I don't just build
+            <span>websites.</span>
+
+            I build digital
+            <span>experiences.</span>
+
+        </div>
+
+
+        <div class="about-text">
+
+            <p>
+                I'm a creative developer who enjoys
+                turning ideas into clean, functional,
+                and visually engaging digital experiences.
+            </p>
+
+            <p>
+                My approach combines visual design
+                with frontend development so every
+                detail has a purpose.
+            </p>
+
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <div class="stat-number">
+                        05+
+                    </div>
+
+                    <div class="stat-label">
+                        Projects completed
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div class="stat-number">
+                        02+
+                    </div>
+
+                    <div class="stat-label">
+                        Years learning
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div class="stat-number">
+                        ∞
+                    </div>
+
+                    <div class="stat-label">
+                        Ideas to explore
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+
+<section
+    id="experience"
+    class="section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-number mono">
+                02 / EXPERIENCE
+            </div>
+
+            <h2 class="section-title">
+                My
+                <em>journey.</em>
+            </h2>
+
+        </div>
+
+
+        <p class="section-desc">
+
+            A collection of experiences,
+            projects, and things I've learned.
+
+        </p>
+
+    </div>
+
+
+    <div class="experience-list">
+
+
+        <div class="experience">
+
+            <div class="experience-year mono">
+                2026
+            </div>
+
+            <div>
+
+                <div class="experience-role">
+                    Frontend Developer
+                </div>
+
+                <div class="experience-company mono">
+                    UMKM DIGITAL PROJECT
+                </div>
+
+            </div>
+
+            <div class="experience-description">
+
+                Building responsive landing pages,
+                interfaces, and interactive components.
+
+            </div>
+
+        </div>
+
+
+
+        <div class="experience">
+
+            <div class="experience-year mono">
+                2026
+            </div>
+
+            <div>
+
+                <div class="experience-role">
+                    Flutter Developer
+                </div>
+
+                <div class="experience-company mono">
+                    MOBILE APPLICATION
+                </div>
+
+            </div>
+
+            <div class="experience-description">
+
+                Developing mobile applications
+                with Flutter and REST API integration.
+
+            </div>
+
+        </div>
+
+
+
+        <div class="experience">
+
+            <div class="experience-year mono">
+                2025
+            </div>
+
+            <div>
+
+                <div class="experience-role">
+                    UI / UX Learner
+                </div>
+
+                <div class="experience-company mono">
+                    SELF DEVELOPMENT
+                </div>
+
+            </div>
+
+            <div class="experience-description">
+
+                Exploring visual systems,
+                typography, layouts, and interaction.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section
+    id="projects"
+    class="projects-section"
+>
+
+
+    <div class="projects-header">
+
+        <div>
+
+            <div class="section-number mono">
+                03 / SELECTED WORK
+            </div>
+
+            <h2 class="section-title">
+
+                Selected
+                <em>projects.</em>
+
+            </h2>
+
+        </div>
+
+
+        <div class="projects-counter mono">
+
+            <span id="currentNumber">
+                01
+            </span>
+
+            /
+
+            05
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CAROUSEL -->
+
+    <div class="carousel">
+
+
+        <div class="carousel-track">
+
+
+            <!-- PROJECT 01 -->
+
+            <article
+                class="project-slide"
+                data-index="0"
+                data-position="center"
+            >
+
+                <img
+                    src="../assets/project1.jpg"
+                    alt="LUNEAID"
+                >
+
+                <div class="project-index mono">
+                    01
+                </div>
+
+
+                <div class="project-info">
+
+                    <div class="project-type mono">
+                        BRANDING / WEBSITE
+                    </div>
+
+                    <div class="project-name">
+                        LUNEAID
+                    </div>
+
+                    <div class="project-year mono">
+                        2026
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 02 -->
+
+            <article
+                class="project-slide"
+                data-index="1"
+                data-position="right"
+            >
+
+                <img
+                    src="../assets/project2.jpg"
+                    alt="Coffee"
+                >
+
+                <div class="project-index mono">
+                    02
+                </div>
+
+
+                <div class="project-info">
+
+                    <div class="project-type mono">
+                        BRAND / VISUAL
+                    </div>
+
+                    <div class="project-name">
+                        Coffee
+                    </div>
+
+                    <div class="project-year mono">
+                        2026
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 03 -->
+
+            <article
+                class="project-slide"
+                data-index="2"
+                data-position="far-right"
+            >
+
+                <img
+                    src="../assets/project3.jpg"
+                    alt="Kokek"
+                >
+
+                <div class="project-index mono">
+                    03
+                </div>
+
+
+                <div class="project-info">
+
+                    <div class="project-type mono">
+                        MOBILE / E-COMMERCE
+                    </div>
+
+                    <div class="project-name">
+                        Kokek
+                    </div>
+
+                    <div class="project-year mono">
+                        2026
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 04 -->
+
+            <article
+                class="project-slide"
+                data-index="3"
+                data-position="far-left"
+            >
+
+                <img
+                    src="../assets/project4.jpg"
+                    alt="Blog App"
+                >
+
+                <div class="project-index mono">
+                    04
+                </div>
+
+
+                <div class="project-info">
+
+                    <div class="project-type mono">
+                        APPLICATION / API
+                    </div>
+
+                    <div class="project-name">
+                        Blog App
+                    </div>
+
+                    <div class="project-year mono">
+                        2026
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 05 -->
+
+            <article
+                class="project-slide"
+                data-index="4"
+                data-position="hidden"
+            >
+
+                <img
+                    src="../assets/project5.jpg"
+                    alt="Millie Patisserie"
+                >
+
+                <div class="project-index mono">
+                    05
+                </div>
+
+
+                <div class="project-info">
+
+                    <div class="project-type mono">
+                        E-COMMERCE / BRANDING
+                    </div>
+
+                    <div class="project-name">
+                        Millie Patisserie
+                    </div>
+
+                    <div class="project-year mono">
+                        2026
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+
+        <!-- LEFT -->
+
+        <button
+            class="carousel-arrow carousel-prev"
+            id="prevBtn"
+            aria-label="Previous project"
         >
-          LUNEAID<span class="opacity-50">.</span>
+            ←
+        </button>
+
+
+        <!-- RIGHT -->
+
+        <button
+            class="carousel-arrow carousel-next"
+            id="nextBtn"
+            aria-label="Next project"
+        >
+            →
+        </button>
+
+    </div>
+
+
+
+    <!-- ACTIVE PROJECT -->
+
+    <div class="active-project">
+
+        <div class="active-project-label">
+
+            <span class="mono">
+                PROJECT
+            </span>
+
+            <span id="activeProjectName">
+                LUNEAID
+            </span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section
+    id="skills"
+    class="section"
+>
+
+    <div class="section-header">
+
+        <div>
+
+            <div class="section-number mono">
+                04 / SKILLS
+            </div>
+
+            <h2 class="section-title">
+
+                Tools I
+                <em>work with.</em>
+
+            </h2>
+
+        </div>
+
+
+        <p class="section-desc">
+
+            Technologies and tools I use while
+            designing and building digital products.
+
+        </p>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+
+        <div class="skill-card">
+
+            <div class="skill-top">
+
+                <div class="skill-name">
+                    Frontend
+                </div>
+
+                <div class="skill-index mono">
+                    01
+                </div>
+
+            </div>
+
+
+            <div class="skill-tags">
+
+                <span class="skill-tag">
+                    HTML
+                </span>
+
+                <span class="skill-tag">
+                    CSS
+                </span>
+
+                <span class="skill-tag">
+                    JavaScript
+                </span>
+
+                <span class="skill-tag">
+                    Tailwind CSS
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-card">
+
+            <div class="skill-top">
+
+                <div class="skill-name">
+                    Mobile
+                </div>
+
+                <div class="skill-index mono">
+                    02
+                </div>
+
+            </div>
+
+
+            <div class="skill-tags">
+
+                <span class="skill-tag">
+                    Flutter
+                </span>
+
+                <span class="skill-tag">
+                    Dart
+                </span>
+
+                <span class="skill-tag">
+                    Responsive UI
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-card">
+
+            <div class="skill-top">
+
+                <div class="skill-name">
+                    Backend
+                </div>
+
+                <div class="skill-index mono">
+                    03
+                </div>
+
+            </div>
+
+
+            <div class="skill-tags">
+
+                <span class="skill-tag">
+                    Node.js
+                </span>
+
+                <span class="skill-tag">
+                    Express
+                </span>
+
+                <span class="skill-tag">
+                    REST API
+                </span>
+
+                <span class="skill-tag">
+                    MySQL
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="skill-card">
+
+            <div class="skill-top">
+
+                <div class="skill-name">
+                    Design
+                </div>
+
+                <div class="skill-index mono">
+                    04
+                </div>
+
+            </div>
+
+
+            <div class="skill-tags">
+
+                <span class="skill-tag">
+                    Figma
+                </span>
+
+                <span class="skill-tag">
+                    UI Design
+                </span>
+
+                <span class="skill-tag">
+                    UX
+                </span>
+
+                <span class="skill-tag">
+                    Branding
+                </span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+    id="contact"
+    class="contact"
+>
+
+    <div class="contact-content">
+
+        <div class="contact-small mono">
+            Have a project in mind?
+        </div>
+
+
+        <h2 class="contact-title">
+
+            Let's make
+
+            <br>
+
+            something
+            <em>great.</em>
+
         </h2>
 
-        <p
-          class="text-sm opacity-40 max-w-xs mt-4 leading-6"
+
+        <a
+            href="mailto:hello@example.com"
+            class="contact-email"
         >
-          Everyday polos made simple,
-          comfortable, and yours.
-        </p>
 
-      </div>
+            hello@example.com
 
+            <span>
+                ↗
+            </span>
 
-      <div>
-
-        <p class="text-xs uppercase tracking-[.2em] opacity-30 mb-5">
-          Explore
-        </p>
-
-        <div class="flex flex-col gap-3 text-sm opacity-60">
-
-          <a href="#collection" class="hover:opacity-100 transition">
-            Collection
-          </a>
-
-          <a href="#about" class="hover:opacity-100 transition">
-            About
-          </a>
-
-          <a href="#why" class="hover:opacity-100 transition">
-            Why Lunea
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div>
-
-        <p class="text-xs uppercase tracking-[.2em] opacity-30 mb-5">
-          Contact
-        </p>
-
-        <div class="flex flex-col gap-3 text-sm opacity-60">
-
-          <a
-            href="mailto:hello@lunea.id"
-            class="hover:opacity-100 transition"
-          >
-            hello@lunea.id
-          </a>
-
-          <span>
-            Indonesia
-          </span>
-
-          <span>
-            @lunea.id
-          </span>
-
-        </div>
-
-      </div>
+        </a>
 
     </div>
 
+</section>
 
-    <div
-      class="border-t border-[#f5f0e5]/10 pt-6 flex flex-col md:flex-row justify-between gap-3 text-xs opacity-30"
-    >
 
-      <p>
-        © 2026 LUNEAID
-      </p>
 
-      <p>
-        Everyday fashion, made simple.
-      </p>
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
+<footer>
+
+    <div class="mono">
+        © 2026 KENZIA. ALL RIGHTS RESERVED.
     </div>
 
-  </div>
+
+    <div class="socials">
+
+        <a href="#" class="mono">
+            Instagram
+        </a>
+
+        <a href="#" class="mono">
+            Github
+        </a>
+
+        <a href="#" class="mono">
+            LinkedIn
+        </a>
+
+    </div>
 
 </footer>
 
 
-<!-- ================================================= -->
-<!-- JAVASCRIPT -->
-<!-- ================================================= -->
+
+<!-- =====================================================
+     CAROUSEL JAVASCRIPT
+===================================================== -->
 
 <script>
 
-  const menuButton =
-    document.getElementById("menuButton");
+    const slides =
+        document.querySelectorAll(".project-slide");
 
-  const mobileMenu =
-    document.getElementById("mobileMenu");
+    const prevBtn =
+        document.getElementById("prevBtn");
+
+    const nextBtn =
+        document.getElementById("nextBtn");
+
+    const currentNumber =
+        document.getElementById("currentNumber");
+
+    const activeProjectName =
+        document.getElementById("activeProjectName");
 
 
-  menuButton.addEventListener("click", () => {
+    const projectNames = [
+        "LUNEAID",
+        "Coffee",
+        "Kokek",
+        "Blog App",
+        "Millie Patisserie"
+    ];
 
-    mobileMenu.classList.toggle("active");
 
-  });
+    let currentIndex = 0;
 
 
-  mobileMenu
-    .querySelectorAll("a")
-    .forEach(link => {
+    /* =====================================================
+       UPDATE CAROUSEL
+    ===================================================== */
 
-      link.addEventListener("click", () => {
+    function updateCarousel() {
 
-        mobileMenu.classList.remove("active");
+        const total = slides.length;
 
-      });
 
-    });
+        slides.forEach((slide, index) => {
+
+            let difference =
+                index - currentIndex;
+
+
+            /*
+                Biar carousel muter terus.
+            */
+
+            if (difference > total / 2) {
+                difference -= total;
+            }
+
+            if (difference < -total / 2) {
+                difference += total;
+            }
+
+
+            let position;
+
+
+            if (difference === 0) {
+
+                position = "center";
+
+            } else if (difference === -1) {
+
+                position = "left";
+
+            } else if (difference === 1) {
+
+                position = "right";
+
+            } else if (difference === -2) {
+
+                position = "far-left";
+
+            } else if (difference === 2) {
+
+                position = "far-right";
+
+            } else {
+
+                position = "hidden";
+
+            }
+
+
+            slide.dataset.position = position;
+
+        });
+
+
+        currentNumber.textContent =
+            String(currentIndex + 1)
+                .padStart(2, "0");
+
+
+        activeProjectName.textContent =
+            projectNames[currentIndex];
+
+    }
+
+
+    /* =====================================================
+       NEXT
+    ===================================================== */
+
+    function nextProject() {
+
+        currentIndex++;
+
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+        }
+
+        updateCarousel();
+
+    }
+
+
+    /* =====================================================
+       PREVIOUS
+    ===================================================== */
+
+    function previousProject() {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+            currentIndex = slides.length - 1;
+        }
+
+        updateCarousel();
+
+    }
+
+
+    /* =====================================================
+       BUTTON
+    ===================================================== */
+
+    nextBtn.addEventListener(
+        "click",
+        nextProject
+    );
+
+    prevBtn.addEventListener(
+        "click",
+        previousProject
+    );
+
+
+    /* =====================================================
+       KEYBOARD
+    ===================================================== */
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "ArrowRight") {
+                nextProject();
+            }
+
+            if (event.key === "ArrowLeft") {
+                previousProject();
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       SWIPE MOBILE
+    ===================================================== */
+
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    const carousel =
+        document.querySelector(".carousel");
+
+
+    carousel.addEventListener(
+        "touchstart",
+        function(event) {
+
+            touchStartX =
+                event.changedTouches[0].screenX;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    carousel.addEventListener(
+        "touchend",
+        function(event) {
+
+            touchEndX =
+                event.changedTouches[0].screenX;
+
+            handleSwipe();
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    function handleSwipe() {
+
+        const distance =
+            touchEndX - touchStartX;
+
+
+        if (Math.abs(distance) < 50) {
+            return;
+        }
+
+
+        if (distance < 0) {
+
+            nextProject();
+
+        } else {
+
+            previousProject();
+
+        }
+
+    }
+
+
+    /* =====================================================
+       INITIALIZE
+    ===================================================== */
+
+    updateCarousel();
 
 </script>
+
+
+</body>
+</html>
+                            text-xs
+                            text-cream-300/40">
+
+                    <p>
+                        <i class="fa-solid fa-location-dot
+                                  text-gold-400 mr-2">
+                        </i>
+
+                        Jakarta, Indonesia
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-phone
+                                  text-gold-400 mr-2">
+                        </i>
+
+                        +62 812 3456 7890
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope
+                                  text-gold-400 mr-2">
+                        </i>
+
+                        hello@kopikenangan.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="gold-line mt-10"></div>
+
+
+        <div class="flex flex-col sm:flex-row
+                    items-center
+                    justify-between
+                    gap-3 mt-6">
+
+            <p class="text-[9px]
+                      text-cream-300/25">
+
+                © 2026 Kopi Kenangan.
+                All rights reserved.
+
+            </p>
+
+            <p class="text-[9px]
+                      text-cream-300/25">
+
+                Made with ☕ & passion.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
 
 
 </body>
