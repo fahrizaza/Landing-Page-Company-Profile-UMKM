@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kopi Kenangan — A Taste Worth Remembering</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coffee: {
+                            950: '#0b0806',
+                            900: '#120c09',
+                            800: '#1d120d',
+                            700: '#2b1a13',
+                            600: '#43291e',
+                            500: '#694434'
+                        },
+
+                        cream: {
+                            50: '#fffdf8',
+                            100: '#f8f1e7',
+                            200: '#eadfce',
+                            300: '#d6c5ae'
+                        },
+
+                        gold: {
+                            300: '#e8d09a',
+                            400: '#d6b56d',
+                            500: '#b99452'
+                        }
+                    },
+
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['DM Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0b0806;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        ::selection {
+            background: #d6b56d;
+            color: #120c09;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Background glow */
+
+        .glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(185, 148, 82, 0.08);
+            filter: blur(120px);
+            border-radius: 999px;
+            pointer-events: none;
+        }
+
+        /* Gold line */
+
+        .gold-line {
+            height: 1px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(214,181,109,.7),
+                transparent
+            );
+        }
+
+        /* Glass */
+
+        .glass {
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.09);
+            backdrop-filter: blur(16px);
+        }
+
+        /* Image */
+
+        .image-hover img {
+            transition: transform .7s ease;
+        }
+
+        .image-hover:hover img {
+            transform: scale(1.06);
+        }
+
+        /* Buttons */
+
+        .gold-button {
+            background: linear-gradient(
+                135deg,
+                #d6b56d,
+                #a77d3e
+            );
+
+            color: #160f0b;
+
+            box-shadow:
+                0 10px 30px rgba(185,148,82,.15);
+
+            transition: all .3s ease;
+        }
+
+        .gold-button:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 15px 35px rgba(185,148,82,.28);
+        }
+
+        /* Card */
+
+        .premium-card {
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,.055),
+                rgba(255,255,255,.018)
+            );
+
+            border: 1px solid rgba(255,255,255,.08);
+
+            transition:
+                transform .35s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-7px);
+
+            border-color: rgba(214,181,109,.35);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.35);
+        }
+
+        /* Fade animation */
+
+        .fade-up {
+            animation: fadeUp .8s ease forwards;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating coffee bean */
+
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="fixed top-0 left-0 right-0 z-50">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <nav class="mt-4 glass rounded-full px-6 py-4 flex items-center justify-between">
+
+            <!-- Logo -->
+
+            <a href="#" class="flex items-center gap-3">
+
+                <div class="w-10 h-10 rounded-full
+                            border border-gold-400/50
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-mug-hot text-gold-400"></i>
+
+                </div>
+
+                <div>
+
+                    <h1 class="serif text-lg text-white leading-none">
+                        Kopi Sandikala
+                    </h1>
+
+                    <span class="text-[9px] tracking-[.3em] uppercase text-gold-400">
+                        Coffee & Memories
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- Navigation -->
+
+            <div class="hidden lg:flex items-center gap-9 text-xs text-cream-300">
+
+                <a href="#home"
+                   class="hover:text-gold-300 transition">
+                    Beranda
+                </a>
+
+                <a href="#about"
+                   class="hover:text-gold-300 transition">
+                    Tentang
+                </a>
+
+                <a href="#menu"
+                   class="hover:text-gold-300 transition">
+                    Menu
+                </a>
+
+                <a href="#testimonial"
+                   class="hover:text-gold-300 transition">
+                    Testimoni
+                </a>
+
+            </div>
+
+
+            <!-- Button -->
+
+            <a href="#menu"
+               class="gold-button px-5 py-2.5 rounded-full
+                      text-xs font-semibold">
+
+                Pesan Sekarang
+
+                <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
+
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main id="home">
+
+<section class="relative min-h-screen flex items-center overflow-hidden">
+
+    <!-- Glow -->
+
+    <div class="glow top-20 left-[-150px]"></div>
+
+    <div class="glow bottom-[-150px] right-[-100px]"></div>
+
+
+    <!-- Background -->
+
+    <div class="absolute inset-0">
+
+        <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=85&w=2000&auto=format&fit=crop"
+            class="w-full h-full object-cover opacity-45"
+            alt="Premium Coffee"
+        >
+
+        <div class="absolute inset-0
+                    bg-gradient-to-r
+                    from-coffee-950
+                    via-coffee-950/95
+                    to-coffee-950/40">
+        </div>
+
+        <div class="absolute inset-0
+                    bg-gradient-to-t
+                    from-coffee-950
+                    via-transparent
+                    to-coffee-950/40">
+        </div>
+
+    </div>
+
+
+    <!-- Hero Content -->
+
+    <div class="relative z-10 max-w-7xl mx-auto
+                px-6 pt-32 pb-20 w-full">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+
+            <!-- Left -->
+
+            <div class="fade-up">
+
+                <div class="flex items-center gap-3 mb-7">
+
+                    <span class="w-10 h-px bg-gold-400"></span>
+
+                    <span class="text-gold-400 uppercase
+                                 tracking-[.35em] text-[10px] font-semibold">
+                        Premium Indonesian Coffee
+                    </span>
+
+                </div>
+
+
+                <h2 class="serif text-5xl sm:text-6xl lg:text-7xl
+                           leading-[1.05] font-medium">
+
+                    Setiap Tegukan,
+
+                    <span class="block italic text-gold-300 mt-2">
+                        Punya Cerita.
+                    </span>
+
+                </h2>
+
+
+                <p class="text-cream-300/70
+                          text-sm sm:text-base
+                          leading-8 max-w-lg mt-7">
+
+                    Dari biji kopi pilihan Indonesia hingga menjadi
+                    secangkir kopi yang menemani setiap momen.
+                    Sederhana, elegan, dan selalu bikin kangen.
+
+                </p>
+
+
+                <div class="flex flex-wrap items-center gap-4 mt-9">
+
+                    <a href="#menu"
+                       class="gold-button px-7 py-3.5
+                              rounded-full text-xs font-semibold">
+
+                        Jelajahi Menu
+
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                    </a>
+
+
+                    <a href="#about"
+                       class="px-7 py-3.5 rounded-full
+                              border border-white/15
+                              text-xs text-white
+                              hover:bg-white/5 transition">
+
+                        Cerita Kami
+
+                    </a>
+
+                </div>
+
+
+                <!-- Stats -->
+
+                <div class="flex items-center gap-10 mt-12">
+
+                    <div>
+
+                        <p class="serif text-2xl text-white">
+                            10+
+                        </p>
+
+                        <p class="text-[10px] text-cream-300/50 mt-1">
+                            Tahun Berkarya
+                        </p>
+
+                    </div>
+
+
+                    <div class="w-px h-8 bg-white/10"></div>
+
+
+                    <div>
+
+                        <p class="serif text-2xl text-white">
+                            100+
+                        </p>
+
+                        <p class="text-[10px] text-cream-300/50 mt-1">
+                            Pilihan Menu
+                        </p>
+
+                    </div>
+
+
+                    <div class="w-px h-8 bg-white/10"></div>
+
+
+                    <div>
+
+                        <p class="serif text-2xl text-white">
+                            4.9
+                        </p>
+
+                        <p class="text-[10px] text-cream-300/50 mt-1">
+                            Rating Pelanggan
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Right -->
+
+            <div class="hidden lg:flex justify-center relative">
+
+                <div class="relative w-[440px] h-[540px]">
+
+                    <!-- Main image -->
+
+                    <div class="absolute inset-8
+                                rounded-[12rem]
+                                overflow-hidden
+                                border border-white/10
+                                image-hover">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=85&w=1000&auto=format&fit=crop"
+                            class="w-full h-full object-cover"
+                            alt="Coffee"
+                        >
+
+                        <div class="absolute inset-0
+                                    bg-gradient-to-t
+                                    from-coffee-950/60
+                                    to-transparent">
+                        </div>
+
+                    </div>
+
+
+                    <!-- Floating badge -->
+
+                    <div class="absolute top-16 right-0
+                                glass rounded-2xl
+                                px-5 py-4 float">
+
+                        <div class="flex items-center gap-3">
+
+                            <div class="w-9 h-9 rounded-full
+                                        bg-gold-400/10
+                                        flex items-center justify-center">
+
+                                <i class="fa-solid fa-star
+                                          text-gold-400 text-xs">
+                                </i>
+
+                            </div>
+
+                            <div>
+
+                                <p class="text-white text-xs font-semibold">
+                                    Signature Blend
+                                </p>
+
+                                <p class="text-cream-300/50 text-[9px] mt-1">
+                                    Crafted with passion
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Bottom badge -->
+
+                    <div class="absolute bottom-14 left-0
+                                glass rounded-2xl px-5 py-4">
+
+                        <p class="serif text-xl text-gold-300">
+                            100%
+                        </p>
+
+                        <p class="text-[9px] uppercase
+                                  tracking-widest
+                                  text-cream-300/50">
+                            Indonesian Coffee Beans
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Scroll -->
+
+    <div class="absolute bottom-8 left-1/2
+                -translate-x-1/2
+                text-center">
+
+        <p class="text-[9px] uppercase
+                  tracking-[.3em]
+                  text-white/30">
+            Scroll to explore
+        </p>
+
+        <i class="fa-solid fa-chevron-down
+                  text-white/30 text-xs mt-3">
+        </i>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about" class="relative py-28">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+
+            <!-- Image -->
+
+            <div class="relative image-hover">
+
+                <div class="absolute
+                            -inset-4
+                            border border-gold-400/10
+                            rounded-3xl">
+                </div>
+
+                <div class="relative rounded-3xl
+                            overflow-hidden
+                            h-[425px]">
+
+                    <img
+                        src="https://i.pinimg.com/736x/9c/8d/3d/9c8d3d413bbf4e55a51eae7d8aa56772.jpg"
+                        class="w-full h-full object-cover"
+                        alt="Coffee beans"
+                    >
+
+                    <div class="absolute inset-0
+                                bg-gradient-to-t
+                                from-coffee-950/70
+                                to-transparent">
+                    </div>
+
+
+                    <div class="absolute bottom-8 left-8">
+
+                        <p class="serif text-3xl italic">
+                            "Made with
+                            <span class="text-gold-300">
+                                passion.
+                            </span>"
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Content -->
+
+            <div>
+
+                <div class="flex items-center gap-3 mb-6">
+
+                    <span class="w-8 h-px bg-gold-400"></span>
+
+                    <span class="text-gold-400 text-[10px]
+                                 uppercase tracking-[.3em]">
+                        Our Story
+                    </span>
+
+                </div>
+
+
+                <h2 class="serif text-4xl md:text-5xl leading-tight">
+
+                    Bukan Sekadar
+                    <span class="italic text-gold-300">
+                        Secangkir Kopi.
+                    </span>
+
+                </h2>
+
+
+                <p class="text-cream-300/60
+                          text-sm leading-8 mt-7">
+
+                    Kopi Sandikala hadir dari sebuah keinginan
+                    sederhana: menghadirkan kopi berkualitas
+                    dengan rasa yang dekat dengan kehidupan
+                    sehari-hari.
+
+                </p>
+
+
+                <p class="text-cream-300/60
+                          text-sm leading-8 mt-4">
+
+                    Karena bagi kami, kopi bukan hanya tentang
+                    rasa. Tetapi tentang orang-orang, cerita,
+                    dan momen yang membuatnya menjadi kenangan.
+
+                </p>
+
+
+                <div class="gold-line my-8"></div>
+
+
+                <!-- Features -->
+
+                <div class="grid sm:grid-cols-3 gap-6">
+
+
+                    <div>
+
+                        <i class="fa-solid fa-seedling
+                                  text-gold-400 text-lg">
+                        </i>
+
+                        <h3 class="text-xs font-semibold mt-3">
+                            Biji Pilihan
+                        </h3>
+
+                        <p class="text-[10px]
+                                  text-cream-300/40
+                                  mt-2 leading-5">
+                            Dipilih dari berbagai daerah
+                            terbaik Indonesia.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-mug-hot
+                                  text-gold-400 text-lg">
+                        </i>
+
+                        <h3 class="text-xs font-semibold mt-3">
+                            Freshly Brewed
+                        </h3>
+
+                        <p class="text-[10px]
+                                  text-cream-300/40
+                                  mt-2 leading-5">
+                            Disajikan fresh untuk setiap
+                            pelanggan.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <i class="fa-solid fa-heart
+                                  text-gold-400 text-lg">
+                        </i>
+
+                        <h3 class="text-xs font-semibold mt-3">
+                            Dibuat dengan Cinta
+                        </h3>
+
+                        <p class="text-[10px]
+                                  text-cream-300/40
+                                  mt-2 leading-5">
+                            Karena setiap detail punya arti.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MENU
+===================================================== -->
+
+<section id="menu" class="py-28 bg-coffee-900/60">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+
+        <!-- Heading -->
+
+        <div class="flex flex-col md:flex-row
+                    md:items-end
+                    justify-between gap-6 mb-12">
+
+            <div>
+
+                <div class="flex items-center gap-3 mb-5">
+
+                    <span class="w-8 h-px bg-gold-400"></span>
+
+                    <span class="text-gold-400 text-[10px]
+                                 uppercase tracking-[.3em]">
+                        Our Favorites
+                    </span>
+
+                </div>
+
+                <h2 class="serif text-4xl md:text-5xl">
+                    Pilihan Favorit
+                </h2>
+
+                <p class="text-sm text-cream-300/50 mt-4">
+                    Temukan rasa yang akan menjadi kenangan baru.
+                </p>
+
+            </div>
+
+
+            <a href="#"
+               class="text-xs text-gold-300
+                      border-b border-gold-400/40
+                      pb-2">
+                Lihat Semua Menu
+                <i class="fa-solid fa-arrow-right ml-2"></i>
+            </a>
+
+        </div>
+
+
+
+        <!-- Products -->
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+
+            <!-- Product 1 -->
+
+            <div class="premium-card rounded-3xl overflow-hidden">
+
+                <div class="relative h-72 image-hover">
+
+                    <span class="absolute top-4 left-4 z-10
+                                 bg-gold-400 text-coffee-950
+                                 text-[9px] font-bold
+                                 uppercase tracking-wider
+                                 px-3 py-1.5 rounded-full">
+                        Best Seller
+                    </span>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=85&w=700&auto=format&fit=crop"
+                        class="w-full h-full object-cover"
+                        alt="Kenangan Mantan"
+                    >
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p class="text-[9px] uppercase
+                              tracking-[.2em]
+                              text-gold-400">
+                        Signature
+                    </p>
+
+                    <h3 class="serif text-xl mt-2">
+                        Kenangan Mantan
+                    </h3>
+
+                    <p class="text-xs text-cream-300/45
+                              leading-6 mt-3">
+                        Kopi susu dengan rasa khas
+                        yang selalu bikin kangen.
+                    </p>
+
+
+                    <div class="flex items-center
+                                justify-between
+                                mt-6 pt-5
+                                border-t border-white/10">
+
+                        <span class="font-semibold text-sm">
+                            Rp 18.000
+                        </span>
+
+                        <button
+                            class="w-9 h-9 rounded-full
+                                   border border-white/10
+                                   hover:bg-gold-400
+                                   hover:text-coffee-950
+                                   transition">
+
+                            <i class="fa-solid fa-plus text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 2 -->
+
+            <div class="premium-card rounded-3xl overflow-hidden">
+
+                <div class="relative h-72 image-hover">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=85&w=700&auto=format&fit=crop"
+                        class="w-full h-full object-cover"
+                        alt="Avocado Coffee"
+                    >
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p class="text-[9px] uppercase
+                              tracking-[.2em]
+                              text-gold-400">
+                        Creamy
+                    </p>
+
+                    <h3 class="serif text-xl mt-2">
+                        Avocado Coffee
+                    </h3>
+
+                    <p class="text-xs text-cream-300/45
+                              leading-6 mt-3">
+                        Perpaduan alpukat segar
+                        dan kopi yang creamy.
+                    </p>
+
+
+                    <div class="flex items-center
+                                justify-between
+                                mt-6 pt-5
+                                border-t border-white/10">
+
+                        <span class="font-semibold text-sm">
+                            Rp 22.000
+                        </span>
+
+                        <button
+                            class="w-9 h-9 rounded-full
+                                   border border-white/10
+                                   hover:bg-gold-400
+                                   hover:text-coffee-950
+                                   transition">
+
+                            <i class="fa-solid fa-plus text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 3 -->
+
+            <div class="premium-card rounded-3xl overflow-hidden">
+
+                <div class="relative h-72 image-hover">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?q=85&w=700&auto=format&fit=crop"
+                        class="w-full h-full object-cover"
+                        alt="Americano"
+                    >
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p class="text-[9px] uppercase
+                              tracking-[.2em]
+                              text-gold-400">
+                        Classic
+                    </p>
+
+                    <h3 class="serif text-xl mt-2">
+                        Americano
+                    </h3>
+
+                    <p class="text-xs text-cream-300/45
+                              leading-6 mt-3">
+                        Kopi hitam dengan rasa
+                        bold yang autentik.
+                    </p>
+
+
+                    <div class="flex items-center
+                                justify-between
+                                mt-6 pt-5
+                                border-t border-white/10">
+
+                        <span class="font-semibold text-sm">
+                            Rp 15.000
+                        </span>
+
+                        <button
+                            class="w-9 h-9 rounded-full
+                                   border border-white/10
+                                   hover:bg-gold-400
+                                   hover:text-coffee-950
+                                   transition">
+
+                            <i class="fa-solid fa-plus text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Product 4 -->
+
+            <div class="premium-card rounded-3xl overflow-hidden">
+
+                <div class="relative h-72 image-hover">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?q=85&w=700&auto=format&fit=crop"
+                        class="w-full h-full object-cover"
+                        alt="Choco Creamy"
+                    >
+
+                </div>
+
+
+                <div class="p-6">
+
+                    <p class="text-[9px] uppercase
+                              tracking-[.2em]
+                              text-gold-400">
+                        Non Coffee
+                    </p>
+
+                    <h3 class="serif text-xl mt-2">
+                        Choco Creamy
+                    </h3>
+
+                    <p class="text-xs text-cream-300/45
+                              leading-6 mt-3">
+                        Cokelat premium dengan
+                        tekstur lembut dan creamy.
+                    </p>
+
+
+                    <div class="flex items-center
+                                justify-between
+                                mt-6 pt-5
+                                border-t border-white/10">
+
+                        <span class="font-semibold text-sm">
+                            Rp 20.000
+                        </span>
+
+                        <button
+                            class="w-9 h-9 rounded-full
+                                   border border-white/10
+                                   hover:bg-gold-400
+                                   hover:text-coffee-950
+                                   transition">
+
+                            <i class="fa-solid fa-plus text-xs"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORIES
+===================================================== -->
+
+<section class="py-28">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center max-w-xl mx-auto mb-14">
+
+            <span class="text-gold-400 uppercase
+                         tracking-[.3em] text-[10px]">
+                Explore
+            </span>
+
+            <h2 class="serif text-4xl md:text-5xl mt-4">
+                Temukan Favoritmu
+            </h2>
+
+            <p class="text-sm text-cream-300/45 mt-5 leading-7">
+                Pilih dari berbagai kategori minuman
+                yang dibuat untuk menemani setiap suasana.
+            </p>
+
+        </div>
+
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+
+            <a href="#"
+               class="premium-card rounded-3xl p-6 group">
+
+                <div class="w-12 h-12 rounded-2xl
+                            bg-gold-400/10
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-mug-hot
+                              text-gold-400">
+                    </i>
+
+                </div>
+
+                <h3 class="serif text-xl mt-6">
+                    Kopi Susu
+                </h3>
+
+                <p class="text-[10px]
+                          text-cream-300/40 mt-2">
+                    10+ Menu
+                </p>
+
+                <div class="mt-7 text-gold-400
+                            text-xs
+                            group-hover:translate-x-2
+                            transition">
+
+                    Explore
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </div>
+
+            </a>
+
+
+
+            <a href="#"
+               class="premium-card rounded-3xl p-6 group">
+
+                <div class="w-12 h-12 rounded-2xl
+                            bg-gold-400/10
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-leaf
+                              text-gold-400">
+                    </i>
+
+                </div>
+
+                <h3 class="serif text-xl mt-6">
+                    Non Coffee
+                </h3>
+
+                <p class="text-[10px]
+                          text-cream-300/40 mt-2">
+                    8+ Menu
+                </p>
+
+                <div class="mt-7 text-gold-400
+                            text-xs
+                            group-hover:translate-x-2
+                            transition">
+
+                    Explore
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </div>
+
+            </a>
+
+
+
+            <a href="#"
+               class="premium-card rounded-3xl p-6 group">
+
+                <div class="w-12 h-12 rounded-2xl
+                            bg-gold-400/10
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-star
+                              text-gold-400">
+                    </i>
+
+                </div>
+
+                <h3 class="serif text-xl mt-6">
+                    Signature
+                </h3>
+
+                <p class="text-[10px]
+                          text-cream-300/40 mt-2">
+                    6+ Menu
+                </p>
+
+                <div class="mt-7 text-gold-400
+                            text-xs
+                            group-hover:translate-x-2
+                            transition">
+
+                    Explore
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </div>
+
+            </a>
+
+
+
+            <a href="#"
+               class="premium-card rounded-3xl p-6 group">
+
+                <div class="w-12 h-12 rounded-2xl
+                            bg-gold-400/10
+                            flex items-center justify-center">
+
+                    <i class="fa-solid fa-cookie-bite
+                              text-gold-400">
+                    </i>
+
+                </div>
+
+                <h3 class="serif text-xl mt-6">
+                    Snack & Pastry
+                </h3>
+
+                <p class="text-[10px]
+                          text-cream-300/40 mt-2">
+                    5+ Menu
+                </p>
+
+                <div class="mt-7 text-gold-400
+                            text-xs
+                            group-hover:translate-x-2
+                            transition">
+
+                    Explore
+                    <i class="fa-solid fa-arrow-right ml-2"></i>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TESTIMONIAL
+===================================================== -->
+
+<section id="testimonial"
+         class="py-28 bg-coffee-900/60">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+
+        <div class="text-center mb-14">
+
+            <span class="text-gold-400 uppercase
+                         tracking-[.3em] text-[10px]">
+                Customer Stories
+            </span>
+
+            <h2 class="serif text-4xl md:text-5xl mt-4">
+                Mereka Bilang Apa?
+            </h2>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+
+            <div class="premium-card rounded-3xl p-8">
+
+                <div class="text-gold-400 text-xs mb-5">
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <p class="serif italic text-lg
+                          text-cream-100/80 leading-8">
+
+                    "Rasanya selalu konsisten.
+                    Kopi Kenangan jadi teman
+                    yang pas buat mulai hari."
+
+                </p>
+
+                <div class="gold-line my-6"></div>
+
+                <p class="text-xs font-semibold">
+                    Sarah A.
+                </p>
+
+                <p class="text-[9px]
+                          text-cream-300/40 mt-1">
+                    Coffee Lover
+                </p>
+
+            </div>
+
+
+
+            <div class="premium-card rounded-3xl p-8">
+
+                <div class="text-gold-400 text-xs mb-5">
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <p class="serif italic text-lg
+                          text-cream-100/80 leading-8">
+
+                    "Pilihan menunya banyak,
+                    rasanya enak dan harganya
+                    masih cocok di kantong."
+
+                </p>
+
+                <div class="gold-line my-6"></div>
+
+                <p class="text-xs font-semibold">
+                    Rizky R.
+                </p>
+
+                <p class="text-[9px]
+                          text-cream-300/40 mt-1">
+                    Customer
+                </p>
+
+            </div>
+
+
+
+            <div class="premium-card rounded-3xl p-8">
+
+                <div class="text-gold-400 text-xs mb-5">
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <p class="serif italic text-lg
+                          text-cream-100/80 leading-8">
+
+                    "Tempatnya nyaman,
+                    kopinya enak, cocok
+                    buat kerja atau santai."
+
+                </p>
+
+                <div class="gold-line my-6"></div>
+
+                <p class="text-xs font-semibold">
+                    Nabila S.
+                </p>
+
+                <p class="text-[9px]
+                          text-cream-300/40 mt-1">
+                    Customer
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FINAL CTA
+===================================================== -->
+
+<section class="py-28">
+
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="relative overflow-hidden
+                    rounded-[2rem]
+                    border border-gold-400/20
+                    min-h-[420px]
+                    flex items-center">
+
+            <img
+                src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=85&w=1600&auto=format&fit=crop"
+                class="absolute inset-0
+                       w-full h-full object-cover opacity-40"
+                alt="Coffee"
+            >
+
+            <div class="absolute inset-0
+                        bg-gradient-to-r
+                        from-coffee-950
+                        via-coffee-950/90
+                        to-coffee-950/30">
+            </div>
+
+
+            <div class="relative z-10 p-10 md:p-16 max-w-xl">
+
+                <span class="text-gold-400 text-[10px]
+                             uppercase tracking-[.3em]">
+                    Your Next Favorite
+                </span>
+
+                <h2 class="serif text-4xl md:text-5xl
+                           leading-tight mt-5">
+
+                    Temukan Rasa
+                    <span class="italic text-gold-300">
+                        Favoritmu.
+                    </span>
+
+                </h2>
+
+                <p class="text-sm
+                          text-cream-300/55
+                          leading-7 mt-5">
+
+                    Satu cangkir mungkin terlihat sederhana.
+                    Tapi siapa tahu, dari sana akan lahir
+                    kenangan baru.
+
+                </p>
+
+                <a href="#menu"
+                   class="gold-button inline-flex
+                          items-center
+                          px-7 py-3.5
+                          rounded-full
+                          text-xs font-semibold
+                          mt-8">
+
+                    Pesan Sekarang
+
+                    <i class="fa-solid fa-arrow-right ml-3"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="border-t border-white/10 py-12">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+
+        <div class="grid md:grid-cols-4 gap-10">
+
+
+            <!-- Brand -->
+
+            <div class="md:col-span-2">
+
+                <div class="flex items-center gap-3">
+
+                    <div class="w-10 h-10 rounded-full
+                                border border-gold-400/40
+                                flex items-center justify-center">
+
+                        <i class="fa-solid fa-mug-hot
+                                  text-gold-400">
+                        </i>
+
+                    </div>
+
+                    <div>
+
+                        <h3 class="serif text-lg">
+                            Kopi Sandikala
+                        </h3>
+
+                        <p class="text-[8px]
+                                  tracking-[.3em]
+                                  uppercase
+                                  text-gold-400">
+                            Coffee & Memories
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <p class="text-xs
+                          text-cream-300/40
+                          leading-6 max-w-sm mt-5">
+
+                    Menghadirkan rasa kopi Indonesia
+                    untuk menemani setiap cerita,
+                    setiap hari.
+
+                </p>
+
+
+                <div class="flex gap-3 mt-6">
+
+                    <a href="#"
+                       class="w-9 h-9 rounded-full
+                              border border-white/10
+                              flex items-center justify-center
+                              hover:border-gold-400
+                              hover:text-gold-400
+                              transition">
+
+                        <i class="fa-brands fa-instagram text-xs"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="w-9 h-9 rounded-full
+                              border border-white/10
+                              flex items-center justify-center
+                              hover:border-gold-400
+                              hover:text-gold-400
+                              transition">
+
+                        <i class="fa-brands fa-tiktok text-xs"></i>
+
+                    </a>
+
+                    <a href="#"
+                       class="w-9 h-9 rounded-full
+                              border border-white/10
+                              flex items-center justify-center
+                              hover:border-gold-400
+                              hover:text-gold-400
+                              transition">
+
+                        <i class="fa-brands fa-youtube text-xs"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Navigation -->
+
+            <div>
+
+                <h4 class="text-xs font-semibold mb-5">
+                    Navigation
+                </h4>
+
+                <div class="space-y-3
+                            text-xs
+                            text-cream-300/40">
+
+                    <a href="#home"
+                       class="block hover:text-gold-300 transition">
+                        Beranda
+                    </a>
+
+                    <a href="#about"
+                       class="block hover:text-gold-300 transition">
+                        Tentang Kami
+                    </a>
+
+                    <a href="#menu"
+                       class="block hover:text-gold-300 transition">
+                        Menu
+                    </a>
+
+                    <a href="#testimonial"
+                       class="block hover:text-gold-300 transition">
+                        Testimoni
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Contact -->
+
+            <div>
+
+                <h4 class="text-xs font-semibold mb-5">
+                    Contact
+                </h4>
+
+                <div class="space-y-4
+                            text-xs
+                            text-cream-300/40">
+
+                    <p>
+                        <i class="fa-solid fa-location-dot
+                                  text-gold-400 mr-2">
+                        </i>
+
+                        Jakarta, Indonesia
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-phone
+                                  text-gold-400 mr-2">
+                        </i>
+
+                        +62 812 3456 7890
+                    </p>
+
+                    <p>
+                        <i class="fa-solid fa-envelope
+                                  text-gold-400 mr-2">
+                        </i>
+
+                        hello@kopikenangan.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="gold-line mt-10"></div>
+
+
+        <div class="flex flex-col sm:flex-row
+                    items-center
+                    justify-between
+                    gap-3 mt-6">
+
+            <p class="text-[9px]
+                      text-cream-300/25">
+
+                © 2026 Kopi Kenangan.
+                All rights reserved.
+
+            </p>
+
+            <p class="text-[9px]
+                      text-cream-300/25">
+
+                Made with ☕ & passion.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
